@@ -1,0 +1,5 @@
+docker-workflow:1.9.1
+ansible:0.5
+pipeline-milestone-step:1.2
+pipeline-model-api:0.7.1
+pipeline-rest-api:2.4
