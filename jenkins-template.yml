@@ -16,6 +16,20 @@ metadata:
   name: jenkins-wendy
 objects:
 - apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: jenkins-slave-ruby
+    annotations:
+        slave-label: ruby
+    labels:
+      role: jenkins-slave
+  spec:
+    tags:
+    - from:
+        kind: DockerImage
+        name: mikenairn/jenkins-slave-ruby-centos7
+      name: latest
+- apiVersion: v1
   kind: Route
   metadata:
     name: ${JENKINS_SERVICE_NAME}
