@@ -3,9 +3,7 @@ apiVersion: v1
 kind: Template
 labels:
   template: jenkins-wendy-template
-message: A Jenkins service has been created in your project.  The username/password
-  are admin/${JENKINS_PASSWORD}.  The tutorial at https://github.com/openshift/origin/blob/master/examples/jenkins/README.md
-  contains more information about using this template.
+message: A Jenkins service has been created in your project.  The username/password are admin/${JENKINS_PASSWORD}.  The tutorial at https://github.com/openshift/origin/blob/master/examples/jenkins/README.md contains more information about using this template.
 metadata:
   annotations:
     description: |-
@@ -15,20 +13,6 @@ metadata:
     tags: instant-app,jenkins
   name: jenkins-wendy
 objects:
-- apiVersion: v1
-  kind: ImageStream
-  metadata:
-    name: jenkins-slave-ruby
-    annotations:
-        slave-label: ruby
-    labels:
-      role: jenkins-slave
-  spec:
-    tags:
-    - from:
-        kind: DockerImage
-        name: mikenairn/jenkins-slave-ruby-centos7
-      name: latest
 - apiVersion: v1
   kind: Route
   metadata:
@@ -54,6 +38,38 @@ objects:
   kind: ImageStream
   metadata:
     name: ${JENKINS_SERVICE_NAME}
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-ruby
+    annotations:
+        slave-label: ruby
+    labels:
+      role: jenkins-slave
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-ruby
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${JENKINS_SERVICE_NAME}-slave-ruby:latest
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
+        ref: jenkins_slave_poc
+      contextDir: slave-ruby
+      type: Git
+    strategy:
+      dockerStrategy:
+          noCache: true
+      type: Docker 
+    triggers:
+    - type: ImageChange
+    - type: ConfigChange
 - apiVersion: v1
   kind: BuildConfig
   metadata:
