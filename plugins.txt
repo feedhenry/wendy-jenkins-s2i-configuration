@@ -3,3 +3,6 @@ ansible:0.5
 pipeline-milestone-step:1.2
 pipeline-model-api:0.7.1
 pipeline-rest-api:2.4
+envinject:1.93.1
+aws-credentials:1.16
+credentials-binding:1.10
