@@ -12,7 +12,9 @@ docker run ${IMAGE_NAME} oc
 # the default entrypoint for the image assumes if you supply more than
 # one arg, you are trying to invoke the slave logic, so we have to
 # override the entrypoing to run complicated commands for testing.
-docker run --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem --version'
-docker run --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem --version'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
+#If nokogiri can install anything can
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem install nokogiri -v '1.6.8.1''
 
 echo "SUCCESS!"
