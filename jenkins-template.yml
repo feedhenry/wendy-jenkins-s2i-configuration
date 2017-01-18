@@ -39,6 +39,40 @@ objects:
   metadata:
     name: ${JENKINS_SERVICE_NAME}
 
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-nvm
+    annotations:
+        slave-label: ruby
+    labels:
+      role: jenkins-slave
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-nvm
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${JENKINS_SERVICE_NAME}-slave-nvm:latest
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
+        ref: master
+      contextDir: slave-nvm
+      type: Git
+    strategy:
+      dockerStrategy:
+          noCache: true
+      type: Docker 
+    triggers:
+    - type: ImageChange
+    - type: ConfigChange
+
+
 - apiVersion: v1
   kind: ImageStream
   metadata:
