@@ -45,7 +45,7 @@ objects:
   metadata:
     name: ${JENKINS_SERVICE_NAME}-slave-nvm
     annotations:
-        slave-label: ruby
+        slave-label: ubuntu
     labels:
       role: jenkins-slave
 - apiVersion: v1
