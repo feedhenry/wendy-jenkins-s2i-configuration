@@ -72,6 +72,37 @@ objects:
     - type: ImageChange
     - type: ConfigChange
 
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-java
+    annotations:
+        slave-label: java
+    labels:
+      role: jenkins-slave
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-java
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${JENKINS_SERVICE_NAME}-slave-java:latest
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
+        ref: master
+      contextDir: slave-java
+      type: Git
+    strategy:
+      dockerStrategy:
+          noCache: true
+      type: Docker
+    triggers:
+    - type: ImageChange
+    - type: ConfigChange
 
 - apiVersion: v1
   kind: ImageStream
