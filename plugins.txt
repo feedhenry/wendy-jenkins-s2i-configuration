@@ -7,3 +7,8 @@ envinject:1.93.1
 aws-credentials:1.16
 credentials-binding:1.10
 ws-cleanup:0.32
+jobConfigHistory:2.15
+copyartifact:1.38.1
+s3:0.10.10
+ssh-agent:1.13
+extended-choice-parameter:0.75
