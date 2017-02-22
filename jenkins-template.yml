@@ -19,7 +19,7 @@ objects:
     name: ${JENKINS_SERVICE_NAME}
   spec:
     tls:
-      insecureEdgeTerminationPolicy: Redirect
+      insecureEdgeTerminationPolicy: Allow
       termination: edge
     to:
       kind: Service
