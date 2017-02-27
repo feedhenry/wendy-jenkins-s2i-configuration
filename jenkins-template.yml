@@ -39,35 +39,66 @@ objects:
   metadata:
     name: ${JENKINS_SERVICE_NAME}
 
-
 - apiVersion: v1
   kind: ImageStream
   metadata:
-    name: ${JENKINS_SERVICE_NAME}-slave-nvm
+    name: ${JENKINS_SERVICE_NAME}-slave-nodejs-ubuntu
     annotations:
-        slave-label: ubuntu
+        slave-label: nodejs-ubuntu
     labels:
       role: jenkins-slave
 - apiVersion: v1
   kind: BuildConfig
   metadata:
-    name: ${JENKINS_SERVICE_NAME}-slave-nvm
+    name: ${JENKINS_SERVICE_NAME}-slave-nodejs-ubuntu
   spec:
     output:
       to:
         kind: ImageStreamTag
-        name: ${JENKINS_SERVICE_NAME}-slave-nvm:latest
+        name: ${JENKINS_SERVICE_NAME}-slave-nodejs-ubuntu:latest
     runPolicy: Serial
     source:
       git:
-        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
-        ref: master
-      contextDir: slave-nvm
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
+      contextDir: slave-nodejs-ubuntu
       type: Git
     strategy:
       dockerStrategy:
           noCache: true
-      type: Docker 
+      type: Docker
+    triggers:
+    - type: ImageChange
+    - type: ConfigChange
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-java-ubuntu
+    annotations:
+        slave-label: java-ubuntu
+    labels:
+      role: jenkins-slave
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-java-ubuntu
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${JENKINS_SERVICE_NAME}-slave-java-ubuntu:latest
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
+      contextDir: slave-java-ubuntu
+      type: Git
+    strategy:
+      dockerStrategy:
+          noCache: true
+      type: Docker
     triggers:
     - type: ImageChange
     - type: ConfigChange
@@ -92,8 +123,8 @@ objects:
     runPolicy: Serial
     source:
       git:
-        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
-        ref: master
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
       contextDir: slave-java
       type: Git
     strategy:
@@ -124,8 +155,8 @@ objects:
     runPolicy: Serial
     source:
       git:
-        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
-        ref: master
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
       contextDir: slave-ruby
       type: Git
     strategy:
@@ -156,8 +187,8 @@ objects:
     runPolicy: Serial
     source:
       git:
-        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration
-        ref: master
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
       contextDir: slave-ruby-fhcap
       type: Git
     strategy:
@@ -181,7 +212,8 @@ objects:
         FROM openshift/jenkins-2-rhel7
         USER example
       git:
-        uri: https://github.com/feedhenry/wendy-jenkins-s2i-configuration.git
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration.git
+        ref: ${GITHUB_REF}
       type: Git
     strategy:
       sourceStrategy:
@@ -308,6 +340,14 @@ objects:
     sessionAffinity: None
     type: ClusterIP
 parameters:
+- description: The name of the github organization to reference in the configuration
+  displayName: Github Organization
+  name: GITHUB_ORG
+  value: feedhenry
+- description: The name of the repository branch to reference in the configuration
+  displayName: Branch
+  name: GITHUB_REF
+  value: master
 - description: The name of the OpenShift Service exposed for the Jenkins container.
   displayName: Jenkins Service Name
   name: JENKINS_SERVICE_NAME
