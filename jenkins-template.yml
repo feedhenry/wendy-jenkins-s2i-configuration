@@ -162,7 +162,7 @@ objects:
     strategy:
       dockerStrategy:
           noCache: true
-      type: Docker 
+      type: Docker
     triggers:
     - type: ImageChange
     - type: ConfigChange
@@ -339,6 +339,16 @@ objects:
       name: ${JENKINS_SERVICE_NAME}
     sessionAffinity: None
     type: ClusterIP
+- apiVersion: v1
+  kind: "LimitRange"
+  metadata:
+    name: jenkins-resource-limits
+  spec:
+    limits:
+      - type: Container
+        defaultRequest:
+          cpu: 1
+          memory: 1Gi
 parameters:
 - description: The name of the github organization to reference in the configuration
   displayName: Github Organization
