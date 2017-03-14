@@ -66,6 +66,7 @@ objects:
     strategy:
       dockerStrategy:
           noCache: true
+          forcePull: true  
       type: Docker
     triggers:
     - type: ImageChange
@@ -97,6 +98,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+          forcePull: true  
           noCache: true
       type: Docker
     triggers:
@@ -129,6 +131,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+          forcePull: true  
           noCache: true
       type: Docker
     triggers:
@@ -161,6 +164,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+          forcePull: true  
           noCache: true
       type: Docker
     triggers:
