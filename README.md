@@ -110,7 +110,7 @@ To deploy the configuration to the openshift, it is prefferable to utilize the p
 We have created a shell-script that creates a project and deploys the templates in roder
 
 ```
-PROJECT_NAME=wendy ./deploy_jenkins.sh
+PROJECT_NAME=wendy ./scripts/deploy_jenkins.sh
 ``` 
 
 This should create a new project named 'wendy' on your openshift, and populate it with slave images,
@@ -122,8 +122,14 @@ otherwise you should be able to login with **admin**:**password**
 If you plan to test changes to slaves or configuration, you can deploy jenkins from build-configuration:
 
 ```
-PROJECT_NAME=wendy BUILD=true ./deploy_jenkins.sh
+PROJECT_NAME=wendy BUILD=true ./scripts/deploy_jenkins.sh
 ``` 
 
 This will make openshift to rebuild all the images referenced in this repo,
 and populate the images this way.
+
+If you want to deploy the nexus service to speed up maven builds, you can:
+
+```
+PROJECT_NAME=wendy NEXUS=true ./scripts/deploy_jenkins.sh
+``` 

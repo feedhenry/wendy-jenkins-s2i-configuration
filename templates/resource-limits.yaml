@@ -1,3 +1,9 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: resource-limits
+objects:
 - apiVersion: v1
   kind: "LimitRange"
   metadata:
