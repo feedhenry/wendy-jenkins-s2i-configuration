@@ -66,7 +66,7 @@ objects:
     strategy:
       dockerStrategy:
           noCache: true
-          forcePull: true  
+          forcePull: true
       type: Docker
     triggers:
     - type: ImageChange
@@ -98,7 +98,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
-          forcePull: true  
+          forcePull: true
           noCache: true
       type: Docker
     triggers:
@@ -131,7 +131,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
-          forcePull: true  
+          forcePull: true
           noCache: true
       type: Docker
     triggers:
@@ -164,7 +164,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
-          forcePull: true  
+          forcePull: true
           noCache: true
       type: Docker
     triggers:
@@ -196,6 +196,39 @@ objects:
       contextDir: slave-ruby-fhcap
       type: Git
     strategy:
+      type: Docker
+    triggers:
+    - type: ImageChange
+    - type: ConfigChange
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-ansible
+    annotations:
+        slave-label: ansible
+    labels:
+      role: jenkins-slave
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${JENKINS_SERVICE_NAME}-slave-ansible
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${JENKINS_SERVICE_NAME}-slave-ansible:latest
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/${GITHUB_ORG}/wendy-jenkins-s2i-configuration
+        ref: ${GITHUB_REF}
+      contextDir: slave-ansible
+      type: Git
+    strategy:
+      dockerStrategy:
+          forcePull: true
+          noCache: true
       type: Docker
     triggers:
     - type: ImageChange
