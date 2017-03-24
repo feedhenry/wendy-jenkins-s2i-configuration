@@ -33,7 +33,7 @@ objects:
       name: "${JENKINS_SERVICE_NAME}"
     tls:
       termination: edge
-      insecureEdgeTerminationPolicy: Redirect
+      insecureEdgeTerminationPolicy: Allow
 - kind: PersistentVolumeClaim
   apiVersion: v1
   metadata:
