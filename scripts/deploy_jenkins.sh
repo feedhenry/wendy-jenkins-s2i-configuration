@@ -15,7 +15,7 @@ fi
 
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap
+for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap slave-ansible
 do
     if [ "$BUILD" = true ] ; then
        oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL=$SLAVE -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
@@ -36,4 +36,4 @@ if [ "${NEXUS}" = true ]; then
    oc new-app -f  $TEMPLATES_DIR/nexus3-template.yaml
 fi
 
-oc new-app -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml
+oc new-app -p ENABLE_OAUTH=false -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml

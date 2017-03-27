@@ -2,7 +2,7 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: jenkins-persistent
+  name: jenkins-wendy
   creationTimestamp: 
   annotations:
     openshift.io/display-name: Jenkins (Persistent)
