@@ -1,0 +1,16 @@
+#!/bin/bash -e
+#
+# Test the Jenkins image.
+#
+# IMAGE_NAME specifies the name of the candidate image used for testing.
+# The image has to be available before this script is executed.
+#
+
+# make sure oc is installed
+docker run ${IMAGE_NAME} oc
+
+# make sure ansible commands are available
+docker run ${IMAGE_NAME} ansible --version
+docker run ${IMAGE_NAME} ansible-playbook --version
+
+echo "SUCCESS!"
