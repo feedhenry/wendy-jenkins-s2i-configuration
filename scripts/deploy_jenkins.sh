@@ -19,7 +19,7 @@ fi
 
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap slave-ansible
+for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
 do
     if [ "$BUILD" = true ] ; then
        oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL=$SLAVE -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml

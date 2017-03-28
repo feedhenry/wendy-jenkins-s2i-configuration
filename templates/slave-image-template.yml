@@ -15,7 +15,7 @@ objects:
 - apiVersion: v1
   kind: ImageStream
   metadata:
-    name: ${JENKINS_SERVICE_NAME}-${IMAGE_NAME}
+    name: ${IMAGE_NAME}
     annotations:
         slave-label: ${SLAVE_LABEL}
     labels:
@@ -28,9 +28,5 @@ parameters:
 - description: The name of the repository branch to reference in the configuration
   displayName: Branch
   name: IMAGE_NAME
-- description: The name of the OpenShift Service exposed for the Jenkins container.
-  displayName: Jenkins Service Name
-  name: JENKINS_SERVICE_NAME
-  value: jenkins
 - description: The label
   name: SLAVE_LABEL
