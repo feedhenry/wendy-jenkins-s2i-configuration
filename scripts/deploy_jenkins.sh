@@ -13,9 +13,13 @@ if [ -z "${NEXUS}" ]; then
    NEXUS=false
 fi
 
+if [ -z "${LIMITS}" ]; then
+   LIMITS=false
+fi
+
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap slave-ansible
+for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
 do
     if [ "$BUILD" = true ] ; then
        oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL=$SLAVE -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
@@ -24,7 +28,9 @@ do
     fi
 done
 
-oc new-app -f  $TEMPLATES_DIR/resource-limits.yaml
+if [ "$LIMITS" = true ] ; then
+    oc new-app -f  $TEMPLATES_DIR/resource-limits.yaml
+fi
 
 if [ "$BUILD" = true ] ; then
     oc new-app -f  $TEMPLATES_DIR/jenkins-build-template.yaml
