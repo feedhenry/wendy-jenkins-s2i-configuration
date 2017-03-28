@@ -1,7 +1,5 @@
 # wendy-jenkins-s2i-configuration
-The s2i configuration based on top of openshift/jenkins
-
-While the repository might seem quite bare, it holds configuration for building the jenkins container to host CI/CD for the FeedHenry platform,
+The repository itself holds configuration for building the jenkins container to host CI/CD for the FeedHenry platform,
 as referenced from [openshift/jenkins Readme|https://github.com/openshift/jenkins#installing-using-s2i-build]
 
 You should be able to build it by running:
@@ -9,18 +7,6 @@ You should be able to build it by running:
 ```
 $ s2i build https://github.com/feedhenry/wendy-jenkins-s2i-configuration.git openshift/jenkins-1-centos7 jenkins_wendy
 ```
-
-To deploy the configuration to the openshift, it is prefferable to utilize the template
-
-```
-oc create -f jenkins-template.yml
-``` 
-
-This should create a new template named 'jenkins-wendy' on your openshift, based on the jenkins persistent template,
-but with added build-config that is capable of updating the image based on the contents of this repository.
-
-There is aditional image stream with metadata to setup the ruby slave,
-with additional BuildConfig to specify the configuration of the ruby slave.
 
 # The Slave Configuration
 
@@ -117,3 +103,33 @@ cd slave-ruby
 docker build -t $IMAGE_NAME .
 ./test/run
 ```
+
+# Deployment
+
+To deploy the configuration to the openshift, it is prefferable to utilize the provided templates
+We have created a shell-script that creates a project and deploys the templates in roder
+
+```
+PROJECT_NAME=wendy ./scripts/deploy_jenkins.sh
+``` 
+
+This should create a new project named 'wendy' on your openshift, and populate it with slave images,
+the pre-built jenkins image based on this repo-config, and deploy it.
+
+If you openshift supports it, the jenkins service will utilize OpenShift OAUTH provider for authorization,
+otherwise you should be able to login with **admin**:**password**
+
+If you plan to test changes to slaves or configuration, you can deploy jenkins from build-configuration:
+
+```
+PROJECT_NAME=wendy BUILD=true ./scripts/deploy_jenkins.sh
+``` 
+
+This will make openshift to rebuild all the images referenced in this repo,
+and populate the images this way.
+
+If you want to deploy the nexus service to speed up maven builds, you can:
+
+```
+PROJECT_NAME=wendy NEXUS=true ./scripts/deploy_jenkins.sh
+``` 

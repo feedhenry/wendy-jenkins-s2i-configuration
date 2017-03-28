@@ -1,0 +1,16 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: resource-limits
+objects:
+- apiVersion: v1
+  kind: "LimitRange"
+  metadata:
+    name: jenkins-resource-limits
+  spec:
+    limits:
+      - type: Container
+        defaultRequest:
+          cpu: 1
+          memory: 1Gi
