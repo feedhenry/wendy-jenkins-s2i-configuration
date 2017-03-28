@@ -20,8 +20,8 @@ objects:
         slave-label: ${SLAVE_LABEL}
     labels:
       role: jenkins-slave
-    spec:
-      dockerImageRepository: "docker.io/fhwendy/${IMAGE_NAME}"
+  spec:
+    dockerImageRepository: "docker.io/fhwendy/${IMAGE_NAME}"
 
 
 parameters:
