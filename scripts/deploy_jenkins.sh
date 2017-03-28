@@ -13,6 +13,10 @@ if [ -z "${NEXUS}" ]; then
    NEXUS=false
 fi
 
+if [ -z "${LIMITS}" ]; then
+   LIMITS=false
+fi
+
 
 oc new-project $PROJECT_NAME
 for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap slave-ansible
@@ -24,7 +28,9 @@ do
     fi
 done
 
-oc new-app -f  $TEMPLATES_DIR/resource-limits.yaml
+if [ "$LIMITS" = true ] ; then
+    oc new-app -f  $TEMPLATES_DIR/resource-limits.yaml
+fi
 
 if [ "$BUILD" = true ] ; then
     oc new-app -f  $TEMPLATES_DIR/jenkins-build-template.yaml
