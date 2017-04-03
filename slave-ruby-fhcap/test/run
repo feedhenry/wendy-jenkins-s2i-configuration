@@ -15,5 +15,6 @@ docker run ${IMAGE_NAME} oc
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'fhcap --version'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'openssl version'
 
 echo "SUCCESS!"
