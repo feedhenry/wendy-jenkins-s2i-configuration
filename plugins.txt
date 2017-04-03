@@ -11,3 +11,4 @@ s3:0.10.10
 ssh-agent:1.13
 extended-choice-parameter:0.75
 rebuild:1.25
+ansicolor:0.5.0
