@@ -14,7 +14,7 @@ if [ -z "${NEXUS}" ]; then
 fi
 
 if [ -z "${LIMITS}" ]; then
-   LIMITS=false
+   LIMITS=true
 fi
 
 
