@@ -8,14 +8,21 @@ ENV BASH_ENV=/usr/local/bin/scl_enable \
 
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+
+RUN yum -y update
+RUN yum -y install python-pip
+
 # Install Ruby
 RUN yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel openssl" && \
+    INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel openssl python-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y
 
 RUN yum groupinstall -y "Development Tools"
+
+RUN pip install python-novaclient
 
 RUN scl enable rh-ruby23 "gem update --system"
 RUN scl enable rh-ruby23 "gem uninstall minitar"
