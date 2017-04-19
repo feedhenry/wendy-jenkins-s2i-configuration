@@ -17,6 +17,9 @@ if [ -z "${LIMITS}" ]; then
    LIMITS=true
 fi
 
+if [ -z "${ENABLE_OAUTH}" ]; then
+   ENABLE_OAUTH=false
+fi
 
 oc new-project $PROJECT_NAME
 for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
@@ -42,4 +45,4 @@ if [ "${NEXUS}" = true ]; then
    oc new-app -f  $TEMPLATES_DIR/nexus3-template.yaml
 fi
 
-oc new-app -p ENABLE_OAUTH=false -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml
+oc new-app -p ENABLE_OAUTH=$ENABLE_OAUTH -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml
