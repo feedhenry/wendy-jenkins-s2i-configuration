@@ -12,3 +12,4 @@ ssh-agent:1.13
 extended-choice-parameter:0.75
 rebuild:1.25
 ansicolor:0.5.0
+permissive-script-security:0.1
