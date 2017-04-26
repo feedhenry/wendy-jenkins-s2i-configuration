@@ -17,5 +17,6 @@ docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'fhcap --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'openssl version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'nova --version'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'aws --version'
 
 echo "SUCCESS!"

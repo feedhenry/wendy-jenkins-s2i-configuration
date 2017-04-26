@@ -24,6 +24,8 @@ RUN yum groupinstall -y "Development Tools"
 
 RUN pip install python-novaclient
 
+RUN pip install awscli
+
 RUN scl enable rh-ruby23 "gem update --system"
 RUN scl enable rh-ruby23 "gem uninstall minitar"
 RUN scl enable rh-ruby23 "gem install minitar -v 0.5.4 -f"
