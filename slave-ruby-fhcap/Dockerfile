@@ -22,9 +22,9 @@ RUN yum install -y centos-release-scl-rh && \
 
 RUN yum groupinstall -y "Development Tools"
 
-RUN pip install python-novaclient
+RUN pip install python-novaclient==7.1.0
 
-RUN pip install awscli
+RUN pip install awscli==1.11.80
 
 RUN scl enable rh-ruby23 "gem update --system"
 RUN scl enable rh-ruby23 "gem uninstall minitar"
