@@ -45,4 +45,8 @@ if [ "${NEXUS}" = true ]; then
    oc new-app -f  $TEMPLATES_DIR/nexus3-template.yaml
 fi
 
+if [ "${ENABLE_OAUTH}" = true ]; then
+  oc adm policy add-role-to-group view system:authenticated -n $PROJECT_NAME || echo "Adding view access for all users to this project failed. Users need this if they are to log-in."
+fi
+
 oc new-app -p ENABLE_OAUTH=$ENABLE_OAUTH -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml
