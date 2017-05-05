@@ -16,7 +16,7 @@ docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'fhcap --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'openssl version'
-docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'nova --version | grep 7.1.0'
-docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'aws --version | grep 1.11.80'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'nova --version 2>&1 | grep 7.1.0'
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'aws --version 2>&1 | grep 1.11.80'
 
 echo "SUCCESS!"
