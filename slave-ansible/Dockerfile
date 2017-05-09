@@ -1,6 +1,8 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM docker.io/fhwendy/jenkins-slave-base-centos7:latest
 
 MAINTAINER Oleg Matskiv <omatskiv@redhat.com>
+
+USER root
 
 RUN yum clean all && \
     yum -y install epel-release && \
