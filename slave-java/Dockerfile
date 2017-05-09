@@ -1,8 +1,10 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM docker.io/fhwendy/jenkins-slave-base-centos7:latest
 
 MAINTAINER Michael Nairn <mnairn@redhat.com>
 
 #Maven slave setup from here https://github.com/openshift/jenkins/tree/master/slave-maven/
+
+USER root
 
 ENV MAVEN_VERSION=3.1.1
 

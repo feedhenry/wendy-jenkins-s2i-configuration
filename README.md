@@ -133,3 +133,23 @@ If you want to deploy the nexus service to speed up maven builds, you can:
 ```
 PROJECT_NAME=wendy NEXUS=true ./scripts/deploy_jenkins.sh
 ``` 
+
+# Standalone slave configuration
+
+All of the slaves have option to connect directly to any jenkins instance that has the jenkins-swarm plugin installed.
+I.e you can do:
+
+```
+docker run \
+-e LABELS=test \
+-e JENKINS_USER=admin-admin \
+-e JENKINS_PASSWORD=186db226af8ce23ffe1a2b8c1b565a20  \
+-e JENKINS_URL=https://jenkins-asaleh-try-auth.tooling3.skunkhenry.com/  \
+-e JENKINS_SLAVE_SERVICE_HOST=tooling3.skunkhenry.com \
+-e JENKINS_SLAVE_SERVICE_PORT=31036 \
+-e JENKINS_SWARM=true \
+--name=slaves \
+docker.io/fhwendy/jenkins-slave-base-ubuntu:RHMAP15237
+```
+
+The swarm plugin will only be used if JENKINS_SWARM=true is passed to the environment. Otherwise it will use the default behaviour.

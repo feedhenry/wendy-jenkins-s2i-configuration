@@ -1,6 +1,8 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM docker.io/fhwendy/jenkins-slave-base-centos7:latest
 
 MAINTAINER Michael Nairn <mnairn@redhat.com>
+
+USER root
 
 ENV BASH_ENV=/usr/local/bin/scl_enable \
     ENV=/usr/local/bin/scl_enable \

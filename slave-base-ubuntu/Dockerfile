@@ -39,5 +39,11 @@ RUN curl -L https://github.com/openshift/origin/releases/download/v1.4.1/openshi
     mv openshift*/oc /usr/local/bin && \
     rm -rf openshift-origin-client-tools-*
 
+RUN curl https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/3.4/swarm-client-3.4.jar > /usr/local/bin/swarm-client.jar
+RUN mkdir /workspace
+RUN chown -R 1001:0 /workspace && \
+    chmod -R g+rw /workspace
+USER default
+
 # Run the Jenkins JNLP client
 ENTRYPOINT ["/usr/local/bin/run-jnlp-client"]

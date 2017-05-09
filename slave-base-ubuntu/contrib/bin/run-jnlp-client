@@ -20,35 +20,49 @@ export HOME=${JENKINS_HOME}
 
 set -e
 
-# if `docker run` has 2 or more arguments the user is passing jenkins launcher arguments
-if [[ $# -gt 1 ]]; then
-  JAR="${JENKINS_HOME}/remoting.jar"
-  PARAMS=""
-
-  # if -url is not provided try env vars
-  if [[ "$@" != *"-url "* ]]; then
-    if [ ! -z "$JENKINS_URL" ]; then
-      PARAMS="$PARAMS -url $JENKINS_URL"
-    elif [ ! -z "$JENKINS_SERVICE_HOST" ] && [ ! -z "$JENKINS_SERVICE_PORT" ]; then
-      PARAMS="$PARAMS -url http://$JENKINS_SERVICE_HOST:$JENKINS_SERVICE_PORT"
-    fi
-  fi
-
-  echo "Downloading ${JENKINS_URL}/jnlpJars/remoting.jar ..."
-  curl -sS ${JENKINS_URL}/jnlpJars/remoting.jar -o ${JAR}
-
-  # if -tunnel is not provided try env vars
-  if [[ "$@" != *"-tunnel "* ]]; then
-    if [ ! -z "$JENKINS_TUNNEL" ]; then
-      PARAMS="$PARAMS -tunnel $JENKINS_TUNNEL"
-    elif [ ! -z "$JENKINS_SLAVE_SERVICE_HOST" ] && [ ! -z "$JENKINS_SLAVE_SERVICE_PORT" ]; then
-      PARAMS="$PARAMS -tunnel $JENKINS_SLAVE_SERVICE_HOST:$JENKINS_SLAVE_SERVICE_PORT"
-    fi
-  fi
-
-  echo Running java $JAVA_OPTS -cp $JAR hudson.remoting.jnlp.Main -headless $PARAMS "$@"
-  cd ${JENKINS_DIR} && exec java $JAVA_OPTS \
-    -cp $JAR hudson.remoting.jnlp.Main -headless $PARAMS "$@"
+if [ -z "${JENKINS_SWARM}" ]; then
+   JENKINS_SWARM=false
 fi
 
-exec "$@"
+if [ -z "${JENKINS_SWARM}" ]; then
+   JENKINS_SWARM=false
+fi
+
+# if the JENKINS_SWARM is true, I will use swarm script
+
+if [ "$JENKINS_SWARM" = true ] ; then
+    java -jar /usr/local/bin/swarm-client.jar -username $JENKINS_USER -password $JENKINS_PASSWORD -disableSslVerification -master $JENKINS_URL -tunnel $JENKINS_SLAVE_SERVICE_HOST:$JENKINS_SLAVE_SERVICE_PORT -executors 1 -labels $LABELS
+else
+    # if `docker run` has 2 or more arguments the user is passing jenkins launcher arguments
+    if [[ $# -gt 1 ]]; then
+      JAR="${JENKINS_HOME}/remoting.jar"
+      PARAMS=""
+
+      # if -url is not provided try env vars
+      if [[ "$@" != *"-url "* ]]; then
+        if [ ! -z "$JENKINS_URL" ]; then
+          PARAMS="$PARAMS -url $JENKINS_URL"
+        elif [ ! -z "$JENKINS_SERVICE_HOST" ] && [ ! -z "$JENKINS_SERVICE_PORT" ]; then
+          PARAMS="$PARAMS -url http://$JENKINS_SERVICE_HOST:$JENKINS_SERVICE_PORT"
+        fi
+      fi
+
+      echo "Downloading ${JENKINS_URL}/jnlpJars/remoting.jar ..."
+      curl -sS ${JENKINS_URL}/jnlpJars/remoting.jar -o ${JAR}
+
+      # if -tunnel is not provided try env vars
+      if [[ "$@" != *"-tunnel "* ]]; then
+        if [ ! -z "$JENKINS_TUNNEL" ]; then
+          PARAMS="$PARAMS -tunnel $JENKINS_TUNNEL"
+        elif [ ! -z "$JENKINS_SLAVE_SERVICE_HOST" ] && [ ! -z "$JENKINS_SLAVE_SERVICE_PORT" ]; then
+          PARAMS="$PARAMS -tunnel $JENKINS_SLAVE_SERVICE_HOST:$JENKINS_SLAVE_SERVICE_PORT"
+        fi
+      fi
+
+      echo Running java $JAVA_OPTS -cp $JAR hudson.remoting.jnlp.Main -headless $PARAMS "$@"
+      cd ${JENKINS_DIR} && exec java $JAVA_OPTS \
+        -cp $JAR hudson.remoting.jnlp.Main -headless $PARAMS "$@"
+    fi
+
+    exec "$@"
+fi
