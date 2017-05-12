@@ -24,10 +24,11 @@ fi
 oc new-project $PROJECT_NAME
 for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
 do
+    SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
     if [ "$BUILD" = true ] ; then
-       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL=$SLAVE -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
+       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL="$SLAVE_LABELS" -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
     else
-       oc new-app -p SLAVE_LABEL=$SLAVE -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
+       oc new-app -p SLAVE_LABEL="$SLAVE_LABELS" -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
     fi
 done
 
