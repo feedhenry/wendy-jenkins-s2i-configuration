@@ -14,3 +14,4 @@ rebuild:1.25
 ansicolor:0.5.0
 permissive-script-security:0.1
 swarm:3.4
+github-branch-source:2.0.5
