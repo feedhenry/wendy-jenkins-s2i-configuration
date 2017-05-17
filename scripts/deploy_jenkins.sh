@@ -5,6 +5,10 @@ export GH_REF=master
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TEMPLATES_DIR="$( cd $SCRIPTS_DIR/../templates && pwd )"
 
+if [ -z "${RHNETWORK}"] then
+   RHNETWORK=false
+fi
+
 if [ -z "${BUILD}" ]; then 
    BUILD=false
 fi
@@ -21,13 +25,19 @@ if [ -z "${ENABLE_OAUTH}" ]; then
    ENABLE_OAUTH=false
 fi
 
+SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
+
+if [ "$RHNETWORK" = true ] ; then
+   SLAVE_LABELS="$SLAVE_LABELS rhnetwork"
+fi
+
 oc new-project $PROJECT_NAME
 for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
 do
     if [ "$BUILD" = true ] ; then
-       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL=$SLAVE -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
+       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL="$SLAVE_LABELS" -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
     else
-       oc new-app -p SLAVE_LABEL=$SLAVE -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
+       oc new-app -p SLAVE_LABEL="$SLAVE_LABELS" -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
     fi
 done
 
