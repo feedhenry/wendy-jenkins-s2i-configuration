@@ -5,7 +5,7 @@ export GH_REF=master
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TEMPLATES_DIR="$( cd $SCRIPTS_DIR/../templates && pwd )"
 
-if [ -z "${RHNETWORK}"] then
+if [ -z "${RHNETWORK}"]; then
    RHNETWORK=false
 fi
 
