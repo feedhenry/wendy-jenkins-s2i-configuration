@@ -1,6 +1,15 @@
 #!/bin/sh -xe
-export GH_ORG=feedhenry
-export GH_REF=master
+
+if [ -z "${GHORG}"]; then
+   GHORG=feedhenry
+fi
+
+if [ -z "${GHREF}"]; then
+   GHREF=master
+fi
+
+export GH_ORG=$GHORG
+export GH_REF=$GHREF
 
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TEMPLATES_DIR="$( cd $SCRIPTS_DIR/../templates && pwd )"
@@ -45,7 +54,7 @@ if [ "$LIMITS" = true ] ; then
 fi
 
 if [ "$BUILD" = true ] ; then
-    oc new-app -f  $TEMPLATES_DIR/jenkins-build-template.yaml
+    oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -f  $TEMPLATES_DIR/jenkins-build-template.yaml
 else
     oc new-app -f  $TEMPLATES_DIR/jenkins-image-template.yaml
 fi
