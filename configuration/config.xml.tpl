@@ -5,7 +5,7 @@
   <numExecutors>5</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+  <authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy">
     <permission>hudson.model.Computer.Configure:admin</permission>
     <permission>hudson.model.Computer.Delete:admin</permission>
     <permission>hudson.model.Hudson.Administer:admin</permission>
@@ -32,6 +32,7 @@
     <permission>hudson.model.Item.Workspace:authenticated</permission>
     <permission>hudson.model.View.Read:authenticated</permission>
     <permission>jenkins.metrics.api.Metrics.View:authenticated</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
   </authorizationStrategy>
   <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
     <disableSignup>true</disableSignup>
