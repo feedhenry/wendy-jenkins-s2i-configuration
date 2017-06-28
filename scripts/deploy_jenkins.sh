@@ -35,7 +35,7 @@ if [ -z "${ENABLE_OAUTH}" ]; then
 fi
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu nodejs-ubuntu ruby ruby-fhcap ansible
+for SLAVE in java-ubuntu nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible
 do
     SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
 
