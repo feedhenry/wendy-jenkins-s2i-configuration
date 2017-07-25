@@ -12,7 +12,7 @@ RUN apt-get update && \
     add-apt-repository -y ppa:openjdk-r/ppa && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     apt-get update && \
-    apt-get -y install gcc-4.8 make memcached ant bc curl wget gettext git openjdk-8-jdk lsof unzip zip liblog4cxx10-dev bzip2 g++-4.8 && \
+    apt-get -y install gcc-4.8 make memcached ant bc curl wget gettext openjdk-8-jdk lsof unzip zip liblog4cxx10-dev bzip2 g++-4.8 && \
     wget http://ftp.us.debian.org/debian/pool/main/n/nss-wrapper/libnss-wrapper_1.1.3-1_amd64.deb && \
     dpkg -i libnss-wrapper_1.1.3-1_amd64.deb && \
     wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/bin/jq && \
@@ -26,6 +26,13 @@ RUN apt-get update && \
     mkdir -p /opt/feedhenry/fh-dynoman/state/  && \
     chmod -R 777 /opt/feedhenry/fh-dynoman/state/ && \
     mkdir -p /home/jenkins
+
+
+RUN apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential make && \
+    wget https://www.kernel.org/pub/software/scm/git/git-1.8.5.6.tar.gz  && \
+    tar -zxf git-1.8.5.6.tar.gz  && \
+    cd git-1.8.5.6  &&  make prefix=/usr/local all && make prefix=/usr/local install && \
+    cd .. && rm -Rf git-* 
 
 RUN echo default:x:1001:0:root:/home/jenkins:/bin/bash >> /etc/passwd
 
