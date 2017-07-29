@@ -28,7 +28,7 @@ RUN apt-get update && \
     mkdir -p /home/jenkins
 
 
-RUN apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential make && \
+RUN apt-get -y install libcurl4-gnutls-dev git libexpat1-dev gettext libz-dev libssl-dev build-essential make && \
     wget https://www.kernel.org/pub/software/scm/git/git-1.8.5.6.tar.gz  && \
     tar -zxf git-1.8.5.6.tar.gz  && \
     cd git-1.8.5.6  &&  make prefix=/usr/local all && make prefix=/usr/local install && \
