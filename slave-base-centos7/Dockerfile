@@ -7,7 +7,7 @@ ENV HOME=/home/jenkins
 USER root
 # Install headless Java
 RUN yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="bc gettext git java-1.8.0-openjdk-headless java-1.8.0-openjdk-headless.i686 lsof rsync tar unzip which zip" && \
+    INSTALL_PKGS="bc expect gettext git java-1.8.0-openjdk-headless java-1.8.0-openjdk-headless.i686 lsof rsync tar unzip which zip" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
