@@ -10,7 +10,7 @@ ENV BASH_ENV=/usr/local/bin/scl_enable \
 
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
 
 RUN yum -y update
 RUN yum -y install python-pip
