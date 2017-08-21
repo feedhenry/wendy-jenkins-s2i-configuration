@@ -12,7 +12,10 @@ RUN apt-get update && \
     add-apt-repository -y ppa:openjdk-r/ppa && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     apt-get update && \
-    apt-get -y install gcc-4.8 make memcached ant bc curl wget gettext openjdk-8-jdk lsof unzip zip liblog4cxx10-dev bzip2 g++-4.8 expect && \
+    apt-get -y install wget && \
+    wget http://mirrors.kernel.org/ubuntu/pool/main/libs/libselinux/libselinux1_2.2.2-1_amd64.deb && \
+    dpkg -i libselinux1_2.2.2-1_amd64.deb && \
+    apt-get -y install gcc-4.8 make memcached ant bc curl gettext openjdk-8-jdk lsof unzip zip liblog4cxx10-dev bzip2 g++-4.8 expect && \
     wget http://ftp.us.debian.org/debian/pool/main/n/nss-wrapper/libnss-wrapper_1.1.3-1_amd64.deb && \
     dpkg -i libnss-wrapper_1.1.3-1_amd64.deb && \
     wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/bin/jq && \
