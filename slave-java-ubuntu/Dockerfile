@@ -12,9 +12,18 @@ RUN (curl -v https://www.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/a
     mkdir -p /var/log/feedhenry/core/ && \
     chown -R 1001:0 /var/log/feedhenry/core/ && \
     chmod -R g+w /var/log/feedhenry/core/ && \
-    echo 127.0.0.1 loghost >> /etc/hosts
+    echo 127.0.0.1 loghost >> /etc/hosts && \
+    mkdir -p /home/jenkins/.m2 && \
+    chown -R 1001:1001 /home/jenkins/.m2/ && \
+    apt-get update && \
+    apt-get -y install \
+        ant \
+        default-jre-headless \
+        openjdk-8-jdk \
+        memcached && \
+    apt-get purge -y python-software-properties software-properties-common && \
+    apt-get autoremove -y && apt-get clean -y && apt-get autoclean -y
 
 
-USER 1001
-RUN mkdir -p /home/jenkins/.m2
+USER default
 ADD ./contrib/settings.xml $HOME/.m2/
