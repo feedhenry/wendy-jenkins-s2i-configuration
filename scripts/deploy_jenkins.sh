@@ -1,10 +1,10 @@
 #!/bin/sh -xe
 
-if [ -z "${GHORG}"]; then
+if [ -z "${GHORG}" ]; then
    GHORG=feedhenry
 fi
 
-if [ -z "${GHREF}"]; then
+if [ -z "${GHREF}" ]; then
    GHREF=master
 fi
 
@@ -14,7 +14,7 @@ export GH_REF=$GHREF
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TEMPLATES_DIR="$( cd $SCRIPTS_DIR/../templates && pwd )"
 
-if [ -z "${RHNETWORK}"]; then
+if [ -z "${RHNETWORK}" ]; then
    RHNETWORK=false
 fi
 
