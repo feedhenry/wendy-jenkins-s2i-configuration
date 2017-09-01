@@ -27,7 +27,7 @@ In the template there is an image-stream:
 
 The `label` and `annotation` serve to give information to the jenkins build,
 that then populates the slave configuration to use this image-stream for all slaves with
-label `ruby`, i.e. so that you can write pipeline scipts in jenkins: 
+label `ruby`, i.e. so that you can write pipeline scipts in jenkins:
 
 ```
 node ("ruby") {
@@ -78,7 +78,7 @@ Better idea though is, to leave the image stream as is, and have a separate buil
     strategy:
       dockerStrategy:
           noCache: true
-      type: Docker 
+      type: Docker
     triggers:
     - type: ImageChange
     - type: ConfigChange
@@ -86,7 +86,7 @@ Better idea though is, to leave the image stream as is, and have a separate buil
 
 This way you can keep your up-to-date from within you openshift just by issuing rebuild on
 this build config. The configuration takes master of feedhenry/wendy-jenkins-s2i-configuration
-and builds the docker file in slave-ruby directory. 
+and builds the docker file in slave-ruby directory.
 Then it pushes this new image to the defined image-stream.
 
 ## The Docker images
@@ -111,7 +111,7 @@ We have created a shell-script that creates a project and deploys the templates 
 
 ```
 PROJECT_NAME=wendy ./scripts/deploy_jenkins.sh
-``` 
+```
 
 This should create a new project named 'wendy' on your openshift, and populate it with slave images,
 the pre-built jenkins image based on this repo-config, and deploy it.
@@ -119,11 +119,13 @@ the pre-built jenkins image based on this repo-config, and deploy it.
 If you openshift supports it, the jenkins service will utilize OpenShift OAUTH provider for authorization,
 otherwise you should be able to login with **admin**:**password**
 
-If you plan to test changes to slaves or configuration, you can deploy jenkins from build-configuration:
+If you plan to test changes to slaves or configuration, you can configure the
+ deploy script with environment variables to build either the master or slaves
+ or both, before deploying:
 
 ```
-PROJECT_NAME=wendy BUILD=true ./scripts/deploy_jenkins.sh
-``` 
+PROJECT_NAME=wendy BUILD_MASTER=true BUILD_SLAVES=true ./scripts/deploy_jenkins.sh
+```
 
 This will make openshift to rebuild all the images referenced in this repo,
 and populate the images this way.
@@ -132,7 +134,7 @@ If you want to deploy the nexus service to speed up maven builds, you can:
 
 ```
 PROJECT_NAME=wendy NEXUS=true ./scripts/deploy_jenkins.sh
-``` 
+```
 
 # Standalone slave configuration
 

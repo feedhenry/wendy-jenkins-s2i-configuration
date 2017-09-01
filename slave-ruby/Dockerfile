@@ -15,13 +15,12 @@ RUN yum install -y centos-release-scl-rh && \
     INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum clean all -y
+    yum groupinstall -y --setopt=tsflags=nodocs "Development Tools" && \
+    yum clean all -y && \
 
-RUN yum groupinstall -y "Development Tools"
+    scl enable rh-ruby23 "gem update --system" && \
 
-RUN scl enable rh-ruby23 "gem update --system"
-
-RUN chown -R 1001:0 $HOME && \
+    chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
 
 USER 1001

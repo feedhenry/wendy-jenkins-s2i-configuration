@@ -5,9 +5,9 @@ MAINTAINER Adam Saleh <asaleh@redhat.com>
 ENV HOME=/home/jenkins
 
 USER root
-# Install headless Java
+
 RUN yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="bc expect gettext git java-1.8.0-openjdk-headless java-1.8.0-openjdk-headless.i686 lsof rsync tar unzip which zip" && \
+    INSTALL_PKGS="bc expect gettext git java-1.8.0-openjdk-headless lsof rsync tar unzip which zip" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
@@ -47,16 +47,15 @@ RUN yum install -y centos-release-scl-rh && \
     unlink /usr/share/man/man1/rmiregistry.1.gz && \
     unlink /usr/share/man/man1/servertool.1.gz && \
     unlink /usr/share/man/man1/tnameserv.1.gz && \
-    unlink /usr/share/man/man1/unpack200.1.gz
+    unlink /usr/share/man/man1/unpack200.1.gz && \
 
-# Copy the entrypoint
+    curl https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/3.4/swarm-client-3.4.jar > /usr/local/bin/swarm-client.jar && \
+    mkdir /workspace && \
+    chown -R 1001:0 /workspace && \
+    chmod -R g+rw /workspace
+
 ADD contrib/bin/* /usr/local/bin/
 
-RUN curl https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/3.4/swarm-client-3.4.jar > /usr/local/bin/swarm-client.jar
-RUN mkdir /workspace
-RUN chown -R 1001:0 /workspace && \
-    chmod -R g+rw /workspace
 USER 1001
 
-# Run the Jenkins JNLP client
 ENTRYPOINT ["/usr/local/bin/run-jnlp-client"]

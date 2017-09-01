@@ -18,11 +18,15 @@ if [ -z "${RHNETWORK}" ]; then
    RHNETWORK=false
 fi
 
-if [ -z "${BUILD}" ]; then 
-   BUILD=false
+if [ -z "${BUILD_MASTER}" ]; then
+   BUILD_MASTER=false
 fi
 
-if [ -z "${NEXUS}" ]; then 
+if [ -z "${BUILD_SLAVES}" ]; then
+    BUILD_SLAVES=false
+fi
+
+if [ -z "${NEXUS}" ]; then
    NEXUS=false
 fi
 
@@ -42,7 +46,7 @@ do
     if [ "$RHNETWORK" = true ] ; then
     SLAVE_LABELS="$SLAVE_LABELS rhnetwork"
     fi
-    if [ "$BUILD" = true ] ; then
+    if [ "$BUILD_SLAVES" = true ] ; then
        oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL="$SLAVE_LABELS" -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
     else
        oc new-app -p SLAVE_LABEL="$SLAVE_LABELS" -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
@@ -53,13 +57,13 @@ if [ "$LIMITS" = true ] ; then
     oc new-app -f  $TEMPLATES_DIR/resource-limits.yaml
 fi
 
-if [ "$BUILD" = true ] ; then
+if [ "$BUILD_MASTER" = true ] ; then
     oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -f  $TEMPLATES_DIR/jenkins-build-template.yaml
 else
     oc new-app -f  $TEMPLATES_DIR/jenkins-image-template.yaml
 fi
 
-if [ "${NEXUS}" = true ]; then 
+if [ "${NEXUS}" = true ]; then
    oc new-app -f  $TEMPLATES_DIR/nexus3-template.yaml
 fi
 
