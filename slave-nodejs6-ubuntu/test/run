@@ -9,4 +9,5 @@
 docker run ${IMAGE_NAME} oc
 docker run --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'npm --version'
 docker run --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'node --version'
+docker run --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'openshift-template-tool version'
 echo "SUCCESS!"
