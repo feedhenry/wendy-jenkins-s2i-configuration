@@ -17,7 +17,7 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
 
     # Install Ruby
     yum install -y --setopt=tsflags=nodocs centos-release-scl-rh && \
-    INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel openssl python-devel" && \
+    INSTALL_PKGS="rh-git29 rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel openssl python-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum groupinstall -y --setopt=tsflags=nodocs "Development Tools" && \
