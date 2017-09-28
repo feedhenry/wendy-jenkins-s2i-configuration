@@ -31,6 +31,7 @@ RUN yum install -y --setopt=tsflags=nodocs epel-release && \
     scl enable rh-ruby23 "gem install minitar -v 0.5.4 -f" && \
     scl enable rh-ruby23 "gem install archive-tar-minitar -v 0.5.2 -f" && \
     scl enable rh-ruby23 "gem install fhcap-cli --no-ri --no-doc" && \
+    scl enable rh-ruby23 "gem install foodcritic -v 4.0.0 --no-rdoc --no-ri" && \
 
     chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
