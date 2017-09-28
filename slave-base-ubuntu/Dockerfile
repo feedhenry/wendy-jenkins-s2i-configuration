@@ -29,6 +29,7 @@ RUN apt-get update && \
     rm -f libselinux1_2.2.2-1_amd64.deb && \
 
     apt-get -y install \
+        apache2-utils \
         bc \
         bzip2 \
         gcc-4.8 \
