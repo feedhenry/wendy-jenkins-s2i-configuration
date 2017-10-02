@@ -43,6 +43,12 @@ for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fh
 do
     SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
 
+    if [ "$SLAVE" = "nodejs-ubuntu" ] ; then
+        # TODO: Remove 'nodejs4' from here when we've got el7 nodejs
+        # slave images (and add it to one of those)
+        SLAVE_LABELS="$SLAVE_LABELS nodejs4-ubuntu nodejs4"
+    fi
+
     if [ "$RHNETWORK" = true ] ; then
     SLAVE_LABELS="$SLAVE_LABELS rhnetwork"
     fi
