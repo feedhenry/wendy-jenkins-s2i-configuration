@@ -7,7 +7,7 @@ ENV HOME=/home/jenkins
 USER root
 
 RUN yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="bc expect gettext git httpd-tools java-1.8.0-openjdk-headless lsof rsync tar unzip which zip" && \
+    INSTALL_PKGS="bc expect gettext git httpd-tools java-1.8.0-openjdk-headless lsof rsync tar unzip which zip gcc" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
