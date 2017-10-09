@@ -49,6 +49,7 @@ RUN apt-get update && \
         openssh-client \
         # Git dependency
         perl \
+        redis-server \
         rsync \
         # wget is used in fh-mobile-sdks makefile
         wget \
