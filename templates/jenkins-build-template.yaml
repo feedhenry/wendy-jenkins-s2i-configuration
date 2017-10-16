@@ -7,7 +7,7 @@ message: A Jenkins build-config template
 metadata:
   annotations:
     description: |-
-        Jenkins build config template 
+        Jenkins build config template
     iconClass: icon-jenkins
     tags: instant-app,jenkins
   name: jenkins-wendy
