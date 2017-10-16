@@ -3,7 +3,7 @@ kind: Template
 apiVersion: v1
 metadata:
   name: jenkins-wendy
-  creationTimestamp: 
+  creationTimestamp:
   annotations:
     openshift.io/display-name: Jenkins (Persistent)
     description: |-
@@ -26,7 +26,7 @@ objects:
   apiVersion: v1
   metadata:
     name: "${JENKINS_SERVICE_NAME}"
-    creationTimestamp: 
+    creationTimestamp:
   spec:
     to:
       kind: Service
@@ -48,7 +48,7 @@ objects:
   apiVersion: v1
   metadata:
     name: "${JENKINS_SERVICE_NAME}"
-    creationTimestamp: 
+    creationTimestamp:
   spec:
     strategy:
       type: Recreate
@@ -69,7 +69,7 @@ objects:
       name: "${JENKINS_SERVICE_NAME}"
     template:
       metadata:
-        creationTimestamp: 
+        creationTimestamp:
         labels:
           name: "${JENKINS_SERVICE_NAME}"
       spec:
@@ -103,6 +103,10 @@ objects:
             value: 'true'
           - name: JNLP_SERVICE_NAME
             value: "${JNLP_SERVICE_NAME}"
+          - name: OVERRIDE_PV_PLUGINS_WITH_IMAGE_PLUGINS
+            value: 'true'
+          - name: JAVA_GC_OPTS
+            value: "-XX:+UseParallelGC -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=40 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:MetaspaceSize=150m"
           resources:
             limits:
               memory: "${MEMORY_LIMIT}"
@@ -131,7 +135,7 @@ objects:
   apiVersion: v1
   metadata:
     name: "${JENKINS_SERVICE_NAME}_edit"
-  groupNames: 
+  groupNames:
   subjects:
   - kind: ServiceAccount
     name: "${JENKINS_SERVICE_NAME}"
@@ -160,7 +164,7 @@ objects:
       service.alpha.openshift.io/dependencies: '[{"name": "${JNLP_SERVICE_NAME}",
         "namespace": "", "kind": "Service"}]'
       service.openshift.io/infrastructure: 'true'
-    creationTimestamp: 
+    creationTimestamp:
   spec:
     ports:
     - name: web

@@ -25,7 +25,6 @@
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:authenticated</permission>
     <permission>hudson.model.Computer.Build:authenticated</permission>
     <permission>hudson.model.Hudson.Read:authenticated</permission>
-    <permission>hudson.model.Hudson.RunScripts:authenticated</permission>
     <permission>hudson.model.Item.Build:authenticated</permission>
     <permission>hudson.model.Item.Cancel:authenticated</permission>
     <permission>hudson.model.Item.Read:authenticated</permission>
