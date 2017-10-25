@@ -39,7 +39,7 @@ if [ -z "${ENABLE_OAUTH}" ]; then
 fi
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7
+for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7
 do
     SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
 
