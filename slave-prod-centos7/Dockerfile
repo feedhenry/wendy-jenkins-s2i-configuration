@@ -8,7 +8,7 @@ USER root
 RUN curl -Lk -o /etc/yum.repos.d/rcm-tools.repo http://download-ipv4.eng.brq.redhat.com/rel-eng/RCMTOOLS/rcm-tools-rhel-7-server.repo
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 
-RUN yum update -y && yum install -y krb5-workstation rhpkg  ansible python2-simplejson python2-lxml nodejs krb5-workstation
+RUN yum update -y && yum install -y krb5-workstation rhpkg  ansible python2-simplejson python2-lxml nodejs
 
 ADD ./krb5.conf /etc/
 
@@ -20,7 +20,5 @@ RUN curl -Lk https://password.corp.redhat.com/cacert.crt -o /etc/pki/ca-trust/so
     update-ca-trust && update-ca-trust enable
 
 COPY ./ssh_config /etc/ssh/ssh_config
-RUN mkdir /home/rhmap4-build
-RUN chmod 777 /home/rhmap4-build
 
 USER 1001
