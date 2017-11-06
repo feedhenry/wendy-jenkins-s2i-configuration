@@ -6,8 +6,9 @@ MAINTAINER Adam Saleh <asaleh@redhat.com>
 USER root
 
 RUN curl -Lk -o /etc/yum.repos.d/rcm-tools.repo http://download-ipv4.eng.brq.redhat.com/rel-eng/RCMTOOLS/rcm-tools-rhel-7-server.repo
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 
-RUN yum update -y && yum install -y krb5-workstation rhpkg
+RUN yum update -y && yum install -y krb5-workstation rhpkg  ansible python2-simplejson python2-lxml nodejs
 
 ADD ./krb5.conf /etc/
 
@@ -17,5 +18,7 @@ RUN curl -Lk https://password.corp.redhat.com/cacert.crt -o /etc/pki/ca-trust/so
     curl -Lk https://password.corp.redhat.com/pki-ca-chain.crt -o /etc/pki/ca-trust/source/anchors/PKI_CA_Chain.crt && \
     ln -sf /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem /etc/pki/tls/certs/ca-bundle.crt && \
     update-ca-trust && update-ca-trust enable
+
+COPY ./ssh_config /etc/ssh/ssh_config
 
 USER 1001
