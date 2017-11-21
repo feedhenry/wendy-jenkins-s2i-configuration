@@ -1,4 +1,4 @@
-FROM docker.io/fhwendy/jenkins-slave-base-centos7:grdryn
+FROM docker.io/fhwendy/jenkins-slave-base-centos7:latest
 
 USER root
 
