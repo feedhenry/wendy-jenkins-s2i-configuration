@@ -5,7 +5,7 @@ as referenced from [openshift/jenkins Readme|https://github.com/openshift/jenkin
 You should be able to build it by running:
 
 ```
-$ s2i build https://github.com/feedhenry/wendy-jenkins-s2i-configuration.git openshift/jenkins-1-centos7 jenkins_wendy
+$ s2i build https://github.com/feedhenry/wendy-jenkins-s2i-configuration.git openshift/jenkins-2-centos7 jenkins_wendy
 ```
 
 # The Slave Configuration
