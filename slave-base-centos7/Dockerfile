@@ -2,16 +2,17 @@ FROM centos:centos7
 
 MAINTAINER Adam Saleh <asaleh@redhat.com>
 
-ENV HOME=/home/jenkins
+ENV HOME=/home/jenkins \
+    ENABLED_COLLECTIONS="rh-git29"
 
 USER root
 
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm && \
-    yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="bc expect gettext git2u httpd-tools java-1.8.0-openjdk-headless lsof rsync tar unzip which zip gcc" && \
+RUN yum install -y centos-release-scl-rh && \
+    INSTALL_PKGS="bc expect gettext rh-git29-git httpd-tools java-1.8.0-openjdk-headless lsof rsync tar unzip which zip gcc" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
+    rm -rf /var/cache/yum && \
     set -o pipefail && curl -L https://github.com/openshift/origin/releases/download/v1.5.0/openshift-origin-client-tools-v1.5.0-031cbe4-linux-64bit.tar.gz | \
     tar -zx && \
     mv openshift*/oc /usr/local/bin && \

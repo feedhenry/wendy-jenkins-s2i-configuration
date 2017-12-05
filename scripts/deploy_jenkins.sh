@@ -39,14 +39,16 @@ if [ -z "${ENABLE_OAUTH}" ]; then
 fi
 
 oc new-project $PROJECT_NAME
-for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7
+for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7 nodejs6-centos7
 do
     SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
 
     if [ "$SLAVE" = "nodejs-ubuntu" ] ; then
-        # TODO: Remove 'nodejs4' from here when we've got el7 nodejs
-        # slave images (and add it to one of those)
-        SLAVE_LABELS="$SLAVE_LABELS nodejs4-ubuntu nodejs4"
+        SLAVE_LABELS="ubuntu nodejs4-ubuntu"
+    fi
+
+    if [ "$SLAVE" = "nodejs6-ubuntu" ] ; then
+        SLAVE_LABELS="ubuntu nodejs6-ubuntu"
     fi
 
     if [ "$RHNETWORK" = true ] ; then
