@@ -1,4 +1,5 @@
 #!/bin/bash
 #
-# This script is a place-holder for slave images to override 
+# This script is a place-holder for slave images to override
 #
+source scl_source enable ${ENABLED_COLLECTIONS}
