@@ -19,6 +19,6 @@ USER 1001
 
 RUN echo "prefix=${HOME}" > ${HOME}/.npmrc && \
     scl enable rh-nodejs6 "npm i -g grunt jira-miner" && \
-    curl -o ${HOME}/bin/openshift-template-tool https://github.com/feedhenry/openshift-template-tool/releases/download/0.0.2/openshift-template-tool-linux-amd64 && \
+    curl -Lo ${HOME}/bin/openshift-template-tool https://github.com/feedhenry/openshift-template-tool/releases/download/0.0.2/openshift-template-tool-linux-amd64 && \
     chmod 755 ${HOME}/bin/openshift-template-tool && \
     chmod -R 775 ${HOME}/lib ${HOME}/etc ${HOME}/bin ${HOME}/.npm ${HOME}/.npmrc
