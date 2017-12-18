@@ -38,6 +38,12 @@ if [ -z "${ENABLE_OAUTH}" ]; then
    ENABLE_OAUTH=false
 fi
 
+if [ -z "${DOCKER_USERNAME}" -o -z "${DOCKER_PASSWORD}"  -o -z "${DOCKER_EMAIL}"]; then
+   echo 'DOCKER_USERNAME and DOCKER_PASSWORD and DOCKER_EMAIL ENV variables should be provided' && exit 1
+fi
+oc secrets new-dockercfg dockerhub --docker-server=docker.io --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL
+oc secrets link builder dockerhub
+
 oc new-project $PROJECT_NAME
 for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7 nodejs6-centos7
 do
