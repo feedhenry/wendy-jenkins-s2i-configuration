@@ -11,6 +11,7 @@ RUN curl -Lk -o /etc/yum.repos.d/rcm-tools.repo http://download-ipv4.eng.brq.red
         krb5-workstation \
         rhpkg \
         ansible \
+        python2-future \
         python2-simplejson \
         python2-lxml \
         nodejs \
