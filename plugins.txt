@@ -1,7 +1,6 @@
 ansible:0.6.2
 envinject:2.1.5
 aws-credentials:1.16
-credentials-binding:1.13
 ws-cleanup:0.34
 jobConfigHistory:2.18
 copyartifact:1.39
