@@ -21,3 +21,4 @@ maven-plugin:3.1
 github-api:1.90
 monitoring:1.71.0
 metrics:3.1.2.10
+antisamy-markup-formatter:1.5
