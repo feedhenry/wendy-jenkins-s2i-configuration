@@ -18,6 +18,8 @@ RUN curl -Lk -o /etc/yum.repos.d/rcm-tools.repo http://download-ipv4.eng.brq.red
         nodejs \
         python2-concreate && \
     yum clean all && \
+    curl -Lo /usr/local/bin/openshift-template-tool https://github.com/feedhenry/openshift-template-tool/releases/download/0.0.2/openshift-template-tool-linux-amd64 && \
+    chmod 755 /usr/local/bin/openshift-template-tool && \
     curl -Lk https://password.corp.redhat.com/cacert.crt -o /etc/pki/ca-trust/source/anchors/Red_Hat_IS_CA.crt && \
     curl -Lk https://password.corp.redhat.com/RH-IT-Root-CA.crt -o /etc/pki/ca-trust/source/anchors/Red_Hat_IT_Root_CA.crt && \
     curl -Lk https://engineering.redhat.com/Eng-CA.crt -o /etc/pki/ca-trust/source/anchors/Eng_Ops_CA.crt && \
