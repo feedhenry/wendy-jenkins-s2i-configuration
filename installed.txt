@@ -79,7 +79,7 @@ monitoring:1.71.0
 openshift-client:1.0.7
 openshift-login:1.0.5
 openshift-pipeline:1.0.54
-openshift-sync:1.0.7
+openshift-sync:1.0.6
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.24
