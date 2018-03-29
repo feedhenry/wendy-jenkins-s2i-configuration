@@ -40,7 +40,9 @@
   <disableRememberMe>false</disableRememberMe>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
-  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.5">
+    <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
+  </markupFormatter>
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
@@ -63,6 +65,7 @@
   <disabledAgentProtocols>
     <string>JNLP-connect</string>
     <string>JNLP2-connect</string>
+    <string>JNLP3-connect</string>
   </disabledAgentProtocols>
   <label>master</label>
   <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
