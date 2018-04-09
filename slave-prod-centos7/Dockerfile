@@ -7,16 +7,12 @@ USER root
 RUN curl -Lk -o /etc/yum.repos.d/rcm-tools.repo http://download-ipv4.eng.brq.redhat.com/rel-eng/RCMTOOLS/rcm-tools-rhel-7-server.repo && \
     curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
     yum update -y && \
-    yum install -y epel-release yum-plugin-copr && \
-    yum copr enable -y goldmann/concreate && \
+    yum install -y epel-release && \
     yum install -y \
         krb5-workstation \
         rhpkg \
-        ansible \
-        python2-simplejson \
-        python2-lxml \
         nodejs \
-        python2-concreate && \
+        rubygem-asciidoctor && \
     yum clean all && \
     curl -Lo /usr/local/bin/openshift-template-tool https://github.com/feedhenry/openshift-template-tool/releases/download/0.0.2/openshift-template-tool-linux-amd64 && \
     chmod 755 /usr/local/bin/openshift-template-tool && \
