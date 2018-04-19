@@ -22,8 +22,8 @@ if [ -z "${BUILD_MASTER}" ]; then
    BUILD_MASTER=false
 fi
 
-if [ -z "${BUILD_SLAVES}" ]; then
-    BUILD_SLAVES=false
+if [ -z "${BUILD_AGENTS}" ]; then
+    BUILD_AGENTS=false
 fi
 
 if [ -z "${NEXUS}" ]; then
@@ -47,25 +47,25 @@ fi
 oc secrets new-dockercfg dockerhub --docker-server=docker.io --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL
 oc secrets link builder dockerhub
 
-for SLAVE in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7 nodejs6-centos7
+for AGENT in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 prod-centos7 nodejs6-centos7
 do
-    SLAVE_LABELS="$SLAVE ${SLAVE/-/ } openshift"
+    AGENT_LABELS="$AGENT ${AGENT/-/ } openshift"
 
-    if [ "$SLAVE" = "nodejs-ubuntu" ] ; then
-        SLAVE_LABELS="ubuntu nodejs4-ubuntu"
+    if [ "$AGENT" = "nodejs-ubuntu" ] ; then
+        AGENT_LABELS="ubuntu nodejs4-ubuntu"
     fi
 
-    if [ "$SLAVE" = "nodejs6-ubuntu" ] ; then
-        SLAVE_LABELS="ubuntu nodejs6-ubuntu"
+    if [ "$AGENT" = "nodejs6-ubuntu" ] ; then
+        AGENT_LABELS="ubuntu nodejs6-ubuntu"
     fi
 
     if [ "$RHNETWORK" = true ] ; then
-    SLAVE_LABELS="$SLAVE_LABELS rhnetwork"
+    AGENT_LABELS="$AGENT_LABELS rhnetwork"
     fi
-    if [ "$BUILD_SLAVES" = true ] ; then
-       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p SLAVE_LABEL="$SLAVE_LABELS" -p CONTEXT_DIR=slave-$SLAVE -f $TEMPLATES_DIR/slave-build-template.yml
+    if [ "$BUILD_AGENTS" = true ] ; then
+       oc new-app -p GITHUB_ORG=$GH_ORG -p GITHUB_REF=$GH_REF -p AGENT_LABEL="$AGENT_LABELS" -p CONTEXT_DIR=agent-$AGENT -f $TEMPLATES_DIR/agent-build-template.yml
     else
-       oc new-app -p SLAVE_LABEL="$SLAVE_LABELS" -p IMAGE_NAME=jenkins-slave-$SLAVE -f  $TEMPLATES_DIR/slave-image-template.yml
+       oc new-app -p AGENT_LABEL="$AGENT_LABELS" -p IMAGE_NAME=jenkins-agent-$AGENT -f  $TEMPLATES_DIR/agent-image-template.yml
     fi
 done
 

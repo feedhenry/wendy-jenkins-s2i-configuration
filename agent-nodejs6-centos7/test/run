@@ -1,0 +1,15 @@
+#!/bin/bash -e
+#
+# Test the Jenkins image.
+#
+# IMAGE_NAME specifies the name of the candidate image used for testing.
+# The image has to be available before this script is executed.
+#
+
+docker run --rm -t --entrypoint=/bin/bash ${IMAGE_NAME} -ic 'source /usr/local/bin/configure-agent && oc version'
+docker run --rm -t --entrypoint=/bin/bash ${IMAGE_NAME} -ic 'source /usr/local/bin/configure-agent && git --version'
+docker run --rm -t --entrypoint=/bin/bash ${IMAGE_NAME} -ic 'source /usr/local/bin/configure-agent && npm --version'
+docker run --rm -t --entrypoint=/bin/bash ${IMAGE_NAME} -ic 'source /usr/local/bin/configure-agent && node --version'
+docker run --rm -t --entrypoint=/bin/bash ${IMAGE_NAME} -ic 'source /usr/local/bin/configure-agent && openshift-template-tool version'
+
+echo "SUCCESS!"

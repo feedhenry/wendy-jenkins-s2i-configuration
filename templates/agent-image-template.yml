@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Template
+labels:
+  template: agent-image-wendy-template
+metadata:
+  annotations:
+    description: |-
+      Jenkins service, with persistent storage.
+      You must have persistent volumes available in your cluster to use this template.
+    iconClass: icon-jenkins
+    tags: jenkins
+  name: agent-image-wendy
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${IMAGE_NAME}
+    annotations:
+        slave-label: ${AGENT_LABEL}
+    labels:
+      role: jenkins-slave
+  spec:
+    dockerImageRepository: "quay.io/feedhenry/${IMAGE_NAME}"
+
+parameters:
+- description: The name of the repository branch to reference in the configuration
+  displayName: Branch
+  name: IMAGE_NAME
+- description: The label
+  name: AGENT_LABEL
