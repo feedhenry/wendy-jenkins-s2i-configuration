@@ -1,4 +1,4 @@
-FROM docker.io/fhwendy/jenkins-slave-base-ubuntu:latest
+FROM quay.io/feedhenry/jenkins-agent-base-ubuntu:latest
 
 MAINTAINER Adam Saleh <asaleh@redhat.com>
 

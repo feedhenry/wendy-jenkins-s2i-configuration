@@ -1,4 +1,4 @@
-FROM docker.io/fhwendy/jenkins-slave-base-centos7:latest
+FROM quay.io/feedhenry/jenkins-agent-base-centos7:latest
 
 MAINTAINER Paul McCarthy <pamccart@redhat.com>
 

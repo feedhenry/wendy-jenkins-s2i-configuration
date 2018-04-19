@@ -1,4 +1,4 @@
-FROM docker.io/fhwendy/jenkins-slave-nodejs-ubuntu:latest
+FROM quay.io/feedhenry/jenkins-agent-nodejs-ubuntu:latest
 
 MAINTAINER Adam Saleh <asaleh@redhat.com>
 

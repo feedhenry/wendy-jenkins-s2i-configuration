@@ -1,4 +1,4 @@
-FROM docker.io/fhwendy/jenkins-slave-java:latest
+FROM quay.io/feedhenry/jenkins-agent-java:latest
 
 USER root
 

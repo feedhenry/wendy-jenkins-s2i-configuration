@@ -21,8 +21,7 @@ objects:
     labels:
       role: jenkins-slave
   spec:
-    dockerImageRepository: "docker.io/fhwendy/${IMAGE_NAME}"
-
+    dockerImageRepository: "quay.io/feedhenry/${IMAGE_NAME}"
 
 parameters:
 - description: The name of the repository branch to reference in the configuration

@@ -151,7 +151,7 @@ docker run \
 -e JENKINS_SLAVE_SERVICE_PORT=31036 \
 -e JENKINS_SWARM=true \
 --name=slaves \
-docker.io/fhwendy/jenkins-slave-base-ubuntu:RHMAP15237
+quay.io/feedhenry/jenkins-agent-base-ubuntu:latest
 ```
 
 The swarm plugin will only be used if JENKINS_SWARM=true is passed to the environment. Otherwise it will use the default behaviour.
