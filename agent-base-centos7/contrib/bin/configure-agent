@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# This script is a place-holder for agent images to override
+#
+source scl_source enable ${ENABLED_COLLECTIONS}

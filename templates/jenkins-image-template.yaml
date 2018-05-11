@@ -7,7 +7,7 @@ message: A Jenkins build-config template
 metadata:
   annotations:
     description: |-
-        Jenkins build config template 
+        Jenkins build config template
     iconClass: icon-jenkins
     tags: instant-app,jenkins
   name: jenkins-wendy
@@ -17,7 +17,7 @@ objects:
   metadata:
     name: ${JENKINS_SERVICE_NAME}
   spec:
-    dockerImageRepository: "docker.io/fhwendy/jenkins-wendy-2-centos7"
+    dockerImageRepository: "quay.io/feedhenry/jenkins-centos7"
 parameters:
 - description: The name of the OpenShift Service exposed for the Jenkins container.
   displayName: Jenkins Service Name
