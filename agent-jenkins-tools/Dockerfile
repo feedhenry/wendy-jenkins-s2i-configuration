@@ -10,7 +10,9 @@ WORKDIR /
 RUN git clone -b allow_self_signed_certs https://github.com/mikenairn/python-jenkins.git && \
     pushd python-jenkins && \
     yum -y --enablerepo=extras install epel-release && \
-    yum -y install python-pip && \
+    yum -y install python-pip skopeo && \
+    yum clean all && \
+    rm -rf /var/cache/yum && \
     pip install -U -r requirements.txt && python setup.py install && \
     popd && \
 
@@ -33,6 +35,7 @@ RUN git clone -b allow_self_signed_certs https://github.com/mikenairn/python-jen
     pushd jenkins-plugin-install && \
     pip install -r requirements.txt && python setup.py install && \
     popd
+
 
 # Jenkins CLI
 
