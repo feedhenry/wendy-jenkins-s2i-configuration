@@ -48,7 +48,7 @@ extended-choice-parameter:0.76
 favorite:2.3.1
 git-client:2.7.0
 github-api:1.90
-github-branch-source:2.3.3
+github-branch-source:2.3.6
 github:1.29.1
 github-organization-folder:1.6
 git:3.9.1
