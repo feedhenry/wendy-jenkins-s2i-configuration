@@ -12,7 +12,7 @@ rebuild:1.28
 ansicolor:0.5.2
 permissive-script-security:0.3
 swarm:3.12
-github-branch-source:2.3.3
+github-branch-source:2.3.6
 config-file-provider:2.18
 cobertura:1.12.1
 http_request:1.8.22
@@ -24,3 +24,4 @@ metrics:3.1.2.11
 antisamy-markup-formatter:1.5
 pipeline-aws:1.24
 ec2:1.39
+lockable-resources:2.2

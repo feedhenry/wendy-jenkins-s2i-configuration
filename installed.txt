@@ -48,10 +48,10 @@ extended-choice-parameter:0.76
 favorite:2.3.1
 git-client:2.7.0
 github-api:1.90
-github-branch-source:2.3.3
-github:1.26.0
+github-branch-source:2.3.6
+github:1.29.1
 github-organization-folder:1.6
-git:3.8.0
+git:3.9.1
 git-server:1.5
 handlebars:1.1
 htmlpublisher:1.16
@@ -67,7 +67,8 @@ jquery:1.11.2-0
 jsch:0.1.54.1
 junit:1.24
 kubernetes-credentials:0.3.0
-kubernetes:1.2
+kubernetes:1.7.1
+lockable-resources:2.2
 mailer:1.21
 mapdb-api:1.0.9.0
 matrix-auth:2.2
@@ -78,10 +79,10 @@ metrics:3.1.2.11
 momentjs:1.1
 monitoring:1.71.0
 node-iterator-api:1.5
-openshift-client:1.0.12
-openshift-login:1.0.8
+openshift-client:1.0.13
+openshift-login:1.0.9
 openshift-pipeline:1.0.54
-openshift-sync:1.0.18
+openshift-sync:1.0.20
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.24
