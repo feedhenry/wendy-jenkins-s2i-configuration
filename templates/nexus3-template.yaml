@@ -27,6 +27,8 @@ objects:
       app: ${SERVICE_NAME}
     name: ${SERVICE_NAME}
   spec:
+    strategy:
+      type: Recreate
     replicas: 1
     selector:
       deploymentconfig: ${SERVICE_NAME}
