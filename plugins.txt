@@ -7,7 +7,7 @@ cobertura:1.12.1
 config-file-provider:2.18
 copyartifact:1.39.1
 ec2:1.39
-envinject:2.1.5
+envinject:2.1.6
 extended-choice-parameter:0.76
 github-api:1.92
 github-branch-source:2.3.6
