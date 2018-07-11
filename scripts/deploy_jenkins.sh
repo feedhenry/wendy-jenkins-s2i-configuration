@@ -47,7 +47,7 @@ fi
 oc secrets new-dockercfg dockerhub --docker-server=docker.io --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL
 oc secrets link builder dockerhub
 
-for AGENT in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 nodejs6-centos7 circleci
+for AGENT in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 nodejs6-centos7 svcat circleci
 do
     AGENT_LABELS="$AGENT ${AGENT/-/ } openshift"
 
@@ -87,4 +87,6 @@ if [ "${ENABLE_OAUTH}" = true ]; then
   oc adm policy add-role-to-group view system:authenticated -n $PROJECT_NAME || echo "Adding view access for all users to this project failed. Users need this if they are to log-in."
 fi
 
+# Adding create project access to system:serviceaccount:$PROJECT_NAME:jenkins
+oc adm policy add-cluster-role-to-user self-provisioner system:serviceaccount:$PROJECT_NAME:jenkins
 oc new-app -p ENABLE_OAUTH=$ENABLE_OAUTH -p MEMORY_LIMIT=2Gi -p NAMESPACE=$PROJECT_NAME -p JENKINS_IMAGE_STREAM_TAG=jenkins:latest -f  $TEMPLATES_DIR/jenkins-template.yml
