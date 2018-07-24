@@ -47,7 +47,7 @@ fi
 oc secrets new-dockercfg dockerhub --docker-server=docker.io --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL
 oc secrets link builder dockerhub
 
-for AGENT in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 nodejs6-centos7
+for AGENT in java-ubuntu jenkins-tools nodejs-ubuntu nodejs6-ubuntu ruby ruby-fhcap ansible go-centos7 python2-centos7 nodejs6-centos7 circleci
 do
     AGENT_LABELS="$AGENT ${AGENT/-/ } openshift"
 
