@@ -5,7 +5,7 @@ antisamy-markup-formatter:1.5
 apache-httpcomponents-client-4-api:4.5.3-2.1
 authentication-tokens:1.1
 aws-credentials:1.23
-aws-java-sdk:1.11.264
+aws-java-sdk:1.11.341
 blueocean-autofavorite:1.2.0
 blueocean-bitbucket-pipeline:1.4.1
 blueocean-commons:1.4.1
@@ -85,7 +85,7 @@ openshift-pipeline:1.0.54
 openshift-sync:1.0.24
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
-pipeline-aws:1.27
+pipeline-aws:1.28
 pipeline-build-step:2.7
 pipeline-github-lib:1.0
 pipeline-graph-analysis:1.6
