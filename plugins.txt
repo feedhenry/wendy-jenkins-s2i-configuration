@@ -18,7 +18,7 @@ maven-plugin:3.1.2
 metrics:4.0.2.2
 monitoring:1.73.1
 permissive-script-security:0.3
-pipeline-aws:1.28
+pipeline-aws:1.29
 rebuild:1.28
 s3:0.11.2
 ssh-agent:1.16
