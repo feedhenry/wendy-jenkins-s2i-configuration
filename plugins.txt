@@ -25,3 +25,8 @@ ssh-agent:1.16
 ssh-slaves:1.26
 swarm:3.13
 ws-cleanup:0.34
+
+# https://jenkins.io/security/advisory/2018-07-30/#SECURITY-997
+# Pulled in by ws-cleanup, so a new version of that might allow us to
+# not manually specify
+resource-disposer:0.12
