@@ -67,7 +67,7 @@ jquery:1.11.2-0
 jsch:0.1.54.1
 junit:1.24
 kubernetes-credentials:0.3.0
-kubernetes:1.7.1
+kubernetes:1.12.0
 lockable-resources:2.3
 mailer:1.21
 mapdb-api:1.0.9.0
@@ -81,11 +81,11 @@ monitoring:1.73.1
 node-iterator-api:1.5
 openshift-client:1.0.14
 openshift-login:1.0.9
-openshift-pipeline:1.0.54
+openshift-pipeline:1.0.55
 openshift-sync:1.0.24
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
-pipeline-aws:1.28
+pipeline-aws:1.29
 pipeline-build-step:2.7
 pipeline-github-lib:1.0
 pipeline-graph-analysis:1.6
@@ -103,13 +103,13 @@ pipeline-utility-steps:1.5.1
 plain-credentials:1.4
 pubsub-light:1.12
 rebuild:1.28
-resource-disposer:0.3
+resource-disposer:0.12
 run-condition:0.10
 s3:0.11.2
 scm-api:2.2.6
 script-security:1.41
 sse-gateway:1.15
-ssh-agent:1.15
+ssh-agent:1.16
 ssh-credentials:1.14
 ssh-slaves:1.26
 structs:1.14
@@ -127,6 +127,6 @@ workflow-job:2.14.1
 workflow-multibranch:2.16
 workflow-remote-loader:1.4
 workflow-scm-step:2.4
-workflow-step-api:2.14
+workflow-step-api:2.16
 workflow-support:2.18
 ws-cleanup:0.34
