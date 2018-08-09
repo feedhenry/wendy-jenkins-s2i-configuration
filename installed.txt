@@ -67,7 +67,7 @@ jquery:1.11.2-0
 jsch:0.1.54.1
 junit:1.24
 kubernetes-credentials:0.3.0
-kubernetes:1.12.0
+kubernetes:1.12.1
 lockable-resources:2.3
 mailer:1.21
 mapdb-api:1.0.9.0
