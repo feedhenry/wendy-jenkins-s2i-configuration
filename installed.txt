@@ -58,6 +58,7 @@ htmlpublisher:1.16
 http_request:1.8.22
 jackson2-api:2.8.10.1
 javadoc:1.0
+jdk-tool:1.1
 jenkins-design-language:1.4.1
 jira:2.4.2
 jobConfigHistory:2.18
@@ -79,10 +80,10 @@ metrics:4.0.2.2
 momentjs:1.1
 monitoring:1.73.1
 node-iterator-api:1.5
-openshift-client:1.0.14
+openshift-client:1.0.15
 openshift-login:1.0.9
 openshift-pipeline:1.0.55
-openshift-sync:1.0.24
+openshift-sync:1.0.25
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.29
