@@ -2,7 +2,7 @@ ansible:1.0
 ansicolor:0.5.2
 antisamy-markup-formatter:1.5
 aws-credentials:1.23
-bouncycastle-api:2.16.3
+bouncycastle-api:2.17
 cobertura:1.12.1
 config-file-provider:2.18
 copyartifact:1.41
