@@ -24,6 +24,6 @@ rebuild:1.28
 resource-disposer:0.12
 s3:0.11.2
 ssh-agent:1.16
-ssh-slaves:1.26
+ssh-slaves:1.27
 swarm:3.13
 ws-cleanup:0.34
