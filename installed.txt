@@ -27,7 +27,7 @@ blueocean-pipeline-scm-api:1.4.1
 blueocean-rest-impl:1.4.1
 blueocean-rest:1.4.1
 blueocean-web:1.4.1
-bouncycastle-api:2.16.3
+bouncycastle-api:2.17
 branch-api:2.0.11
 cloudbees-bitbucket-branch-source:2.2.5
 cloudbees-folder:6.1.2
@@ -83,7 +83,7 @@ node-iterator-api:1.5
 openshift-client:1.0.16
 openshift-login:1.0.9
 openshift-pipeline:1.0.55
-openshift-sync:1.0.25
+openshift-sync:1.0.26
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.29
@@ -112,7 +112,7 @@ script-security:1.41
 sse-gateway:1.15
 ssh-agent:1.16
 ssh-credentials:1.14
-ssh-slaves:1.26
+ssh-slaves:1.28
 structs:1.14
 subversion:2.10.3
 swarm:3.13
