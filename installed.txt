@@ -86,7 +86,7 @@ openshift-pipeline:1.0.55
 openshift-sync:1.0.27
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
-pipeline-aws:1.29
+pipeline-aws:1.30
 pipeline-build-step:2.7
 pipeline-github-lib:1.0
 pipeline-graph-analysis:1.6
