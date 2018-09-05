@@ -78,7 +78,7 @@ maven-plugin:3.1.2
 mercurial:2.3
 metrics:4.0.2.2
 momentjs:1.1
-monitoring:1.73.1
+monitoring:1.74.0
 node-iterator-api:1.5
 openshift-client:1.0.16
 openshift-login:1.0.9
@@ -115,7 +115,7 @@ ssh-credentials:1.14
 ssh-slaves:1.28
 structs:1.14
 subversion:2.10.3
-swarm:3.13
+swarm:3.14
 token-macro:2.0
 variant:1.1
 workflow-aggregator:2.5
