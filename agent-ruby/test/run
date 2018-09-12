@@ -16,5 +16,6 @@ docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem --version'
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'ruby --version'
 #If nokogiri can install anything can
 docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem install nokogiri -v '1.6.8.1''
+docker run --rm --entrypoint=/bin/sh ${IMAGE_NAME} -ic 'gem install ovirt-engine-sdk -v '4.2.4''
 
 echo "SUCCESS!"

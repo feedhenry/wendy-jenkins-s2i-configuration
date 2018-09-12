@@ -12,7 +12,7 @@ COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
 # Install Ruby
 RUN yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel" && \
+    INSTALL_PKGS="rh-ruby23 rh-ruby23-ruby-devel rh-ruby23-rubygem-rake rh-ruby23-rubygem-bundler zlib-devel libxml2-devel libcurl-devel" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum groupinstall -y --setopt=tsflags=nodocs "Development Tools" && \
