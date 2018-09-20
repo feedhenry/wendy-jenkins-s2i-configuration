@@ -19,7 +19,7 @@ maven-plugin:3.1.2
 metrics:4.0.2.2
 monitoring:1.74.0
 permissive-script-security:0.3
-pipeline-aws:1.31
+pipeline-aws:1.32
 rebuild:1.28
 resource-disposer:0.12
 s3:0.11.2
