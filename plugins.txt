@@ -6,7 +6,7 @@ bouncycastle-api:2.17
 cobertura:1.13
 config-file-provider:3.2
 copyartifact:1.41
-ec2:1.39
+ec2:1.40
 envinject:2.1.6
 extended-choice-parameter:0.76
 github-api:1.92
@@ -23,7 +23,7 @@ pipeline-aws:1.32
 rebuild:1.29
 resource-disposer:0.12
 s3:0.11.2
-ssh-agent:1.16
+ssh-agent:1.17
 ssh-slaves:1.28.1
 swarm:3.14
 ws-cleanup:0.34
