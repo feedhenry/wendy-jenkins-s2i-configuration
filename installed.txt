@@ -62,8 +62,8 @@ javadoc:1.0
 jdk-tool:1.1
 jenkins-design-language:1.4.1
 jira:2.4.2
-jobConfigHistory:2.18.1
-job-dsl:1.68
+jobConfigHistory:2.18.2
+job-dsl:1.70
 jquery-detached:1.2.1
 jquery:1.11.2-0
 jsch:0.1.54.1
