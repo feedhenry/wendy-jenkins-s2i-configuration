@@ -61,13 +61,13 @@ jackson2-api:2.8.11.3
 javadoc:1.0
 jdk-tool:1.1
 jenkins-design-language:1.4.1
-jira:2.4.2
+jira:3.0.2
 jobConfigHistory:2.18.2
 job-dsl:1.70
 jquery-detached:1.2.1
 jquery:1.11.2-0
 jsch:0.1.54.1
-junit:1.24
+junit:1.26.1
 kubernetes-credentials:0.3.0
 kubernetes:1.12.1
 lockable-resources:2.3
