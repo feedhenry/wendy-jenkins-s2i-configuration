@@ -128,7 +128,7 @@ workflow-durable-task-step:2.18
 workflow-job:2.14.1
 workflow-multibranch:2.16
 workflow-remote-loader:1.4
-workflow-scm-step:2.4
+workflow-scm-step:2.7
 workflow-step-api:2.16
 workflow-support:2.18
 ws-cleanup:0.34
