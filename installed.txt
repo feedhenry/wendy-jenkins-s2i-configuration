@@ -81,7 +81,7 @@ metrics:4.0.2.2
 momentjs:1.1
 monitoring:1.74.0
 node-iterator-api:1.5.0
-openshift-client:1.0.18
+openshift-client:1.0.20
 openshift-login:1.0.9
 openshift-pipeline:1.0.55
 openshift-sync:1.0.29
@@ -131,4 +131,4 @@ workflow-remote-loader:1.4
 workflow-scm-step:2.7
 workflow-step-api:2.16
 workflow-support:2.18
-ws-cleanup:0.34
+ws-cleanup:0.35
