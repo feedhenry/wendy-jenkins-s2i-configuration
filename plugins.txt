@@ -26,4 +26,4 @@ ssh-agent:1.17
 ssh-slaves:1.28.1
 swarm:3.14
 workflow-scm-step:2.7
-ws-cleanup:0.35
+ws-cleanup:0.36
