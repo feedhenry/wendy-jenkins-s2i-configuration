@@ -1,7 +1,7 @@
 ansible:1.0
 ansicolor:0.5.3
 antisamy-markup-formatter:1.5
-aws-credentials:1.23
+aws-credentials:1.24
 bouncycastle-api:2.17
 cobertura:1.13
 copyartifact:1.41
@@ -26,7 +26,7 @@ resource-disposer:0.12
 s3:0.11.2
 script-security:1.48
 ssh-agent:1.17
-ssh-slaves:1.28.1
+ssh-slaves:1.29.1
 swarm:3.14
 workflow-aggregator:2.6
 workflow-cps:2.60
