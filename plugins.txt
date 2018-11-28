@@ -8,7 +8,7 @@ copyartifact:1.41
 ec2:1.41
 envinject:2.1.6
 extended-choice-parameter:0.76
-github-api:1.92
+github-api:1.95
 github-branch-source:2.4.1
 http_request:1.8.22
 jdk-tool:1.1
