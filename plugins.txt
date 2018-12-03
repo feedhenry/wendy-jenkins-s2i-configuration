@@ -18,6 +18,9 @@ maven-plugin:3.2
 metrics:4.0.2.2
 monitoring:1.74.0
 openshift-pipeline:1.0.55
+openshift-login:1.0.11
+openshift-client:1.0.22
+openshift-sync:1.0.30
 permissive-script-security:0.3
 pipeline-aws:1.34
 pipeline-utility-steps:2.2.0
