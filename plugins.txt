@@ -20,7 +20,7 @@ monitoring:1.75.0
 openshift-client:1.0.22
 openshift-login:1.0.12
 openshift-pipeline:1.0.55
-openshift-sync:1.0.30
+openshift-sync:1.0.31
 permissive-script-security:0.3
 pipeline-aws:1.35
 pipeline-utility-steps:2.2.0
@@ -30,7 +30,7 @@ s3:0.11.2
 script-security:1.49
 ssh-agent:1.17
 ssh-slaves:1.29.1
-swarm:3.14
+swarm:3.15
 workflow-aggregator:2.6
 workflow-cps:2.61
 workflow-scm-step:2.7
