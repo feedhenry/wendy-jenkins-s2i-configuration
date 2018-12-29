@@ -26,7 +26,7 @@ resource-disposer:0.12
 s3:0.11.2
 script-security:1.49
 ssh-agent:1.17
-ssh-slaves:1.29.1
+ssh-slaves:1.29.4
 swarm:3.15
 workflow-aggregator:2.6
 workflow-cps:2.61
