@@ -5,7 +5,7 @@ aws-credentials:1.24
 bouncycastle-api:2.17
 cobertura:1.13
 copyartifact:1.41
-ec2:1.41
+ec2:1.42
 envinject:2.1.6
 extended-choice-parameter:0.76
 github-api:1.95
@@ -24,11 +24,11 @@ pipeline-utility-steps:2.2.0
 rebuild:1.29
 resource-disposer:0.12
 s3:0.11.2
-script-security:1.49
+script-security:1.50
 ssh-agent:1.17
 ssh-slaves:1.29.4
 swarm:3.15
 workflow-aggregator:2.6
-workflow-cps:2.61
+workflow-cps:2.61.1
 workflow-scm-step:2.7
 ws-cleanup:0.37
