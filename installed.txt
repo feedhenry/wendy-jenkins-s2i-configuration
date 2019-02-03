@@ -124,12 +124,12 @@ workflow-aggregator:2.6
 workflow-api:2.30
 workflow-basic-steps:2.11
 workflow-cps-global-lib:2.11
-workflow-cps:2.62
+workflow-cps:2.63
 workflow-durable-task-step:2.22
 workflow-job:2.26
 workflow-multibranch:2.20
 workflow-remote-loader:1.4
 workflow-scm-step:2.7
-workflow-step-api:2.18
-workflow-support:2.22
+workflow-step-api:2.19
+workflow-support:3.2
 ws-cleanup:0.37
