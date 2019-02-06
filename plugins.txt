@@ -15,7 +15,7 @@ jdk-tool:1.2
 jobConfigHistory:2.19
 lockable-resources:2.4
 maven-plugin:3.2
-metrics:4.0.2.2
+metrics:4.0.2.3
 monitoring:1.76.0
 openshift-pipeline:1.0.55
 permissive-script-security:0.3
