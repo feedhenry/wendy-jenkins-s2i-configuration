@@ -59,7 +59,7 @@ handy-uri-templates-2-api:2.1.6-1.0
 htmlpublisher:1.16
 http_request:1.8.22
 jackson2-api:2.9.7.1
-javadoc:1.0
+javadoc:1.1
 jdk-tool:1.2
 jenkins-design-language:1.9.0
 jira:3.0.2
@@ -78,12 +78,12 @@ matrix-auth:2.2
 matrix-project:1.12
 maven-plugin:3.2
 mercurial:2.3
-metrics:4.0.2.2
+metrics:4.0.2.3
 momentjs:1.1
 monitoring:1.76.0
 node-iterator-api:1.5.0
 openshift-client:1.0.24
-openshift-login:1.0.14
+openshift-login:1.0.16
 openshift-pipeline:1.0.55
 openshift-sync:1.0.31
 parameterized-trigger:2.35.2
