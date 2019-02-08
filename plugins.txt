@@ -1,5 +1,5 @@
 ansible:1.0
-ansicolor:0.5.3
+ansicolor:0.6.2
 antisamy-markup-formatter:1.5
 aws-credentials:1.24
 bouncycastle-api:2.17
