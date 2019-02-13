@@ -85,7 +85,7 @@ node-iterator-api:1.5.0
 openshift-client:1.0.24
 openshift-login:1.0.16
 openshift-pipeline:1.0.55
-openshift-sync:1.0.31
+openshift-sync:1.0.32
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.36
