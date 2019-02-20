@@ -82,7 +82,7 @@ metrics:4.0.2.3
 momentjs:1.1
 monitoring:1.76.0
 node-iterator-api:1.5.0
-openshift-client:1.0.24
+openshift-client:1.0.25
 openshift-login:1.0.16
 openshift-pipeline:1.0.55
 openshift-sync:1.0.32
