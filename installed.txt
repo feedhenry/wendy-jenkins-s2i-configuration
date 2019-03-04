@@ -35,7 +35,7 @@ cobertura:1.13
 code-coverage-api:1.0.4
 conditional-buildstep:1.3.1
 config-file-provider:3.5
-copyartifact:1.41
+copyartifact:1.42
 credentials-binding:1.16
 credentials:2.1.18
 display-url-api:2.2.0
@@ -82,7 +82,7 @@ metrics:4.0.2.3
 momentjs:1.1
 monitoring:1.76.0
 node-iterator-api:1.5.0
-openshift-client:1.0.26
+openshift-client:1.0.27
 openshift-login:1.0.16
 openshift-pipeline:1.0.55
 openshift-sync:1.0.32
