@@ -24,11 +24,11 @@ pipeline-utility-steps:2.2.0
 rebuild:1.29
 resource-disposer:0.12
 s3:0.11.2
-script-security:1.53
+script-security:1.54
 ssh-agent:1.17
 ssh-slaves:1.29.4
 swarm:3.15
 workflow-aggregator:2.6
-workflow-cps:2.63
+workflow-cps:2.64
 workflow-scm-step:2.7
 ws-cleanup:0.37
