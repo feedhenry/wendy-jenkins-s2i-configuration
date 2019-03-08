@@ -20,7 +20,7 @@ monitoring:1.76.0
 openshift-pipeline:1.0.55
 permissive-script-security:0.3
 pipeline-aws:1.36
-pipeline-utility-steps:2.2.0
+pipeline-utility-steps:2.3.0
 rebuild:1.29
 resource-disposer:0.12
 s3:0.11.2
