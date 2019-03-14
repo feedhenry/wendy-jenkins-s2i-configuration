@@ -63,7 +63,7 @@ javadoc:1.0
 jdk-tool:1.2
 jenkins-design-language:1.10.2
 jira:3.0.5
-job-dsl:1.70
+job-dsl:1.72
 jobConfigHistory:2.19
 jquery-detached:1.2.1
 jquery:1.11.2-0
@@ -75,7 +75,7 @@ lockable-resources:2.4
 mailer:1.21
 mapdb-api:1.0.9.0
 matrix-auth:2.2
-matrix-project:1.12
+matrix-project:1.14
 maven-plugin:3.2
 mercurial:2.3
 metrics:4.0.2.3
@@ -85,7 +85,7 @@ node-iterator-api:1.5.0
 openshift-client:1.0.27
 openshift-login:1.0.16
 openshift-pipeline:1.0.55
-openshift-sync:1.0.32
+openshift-sync:1.0.34
 parameterized-trigger:2.35.2
 permissive-script-security:0.3
 pipeline-aws:1.36
