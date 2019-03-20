@@ -110,7 +110,7 @@ resource-disposer:0.12
 run-condition:0.10
 s3:0.11.2
 scm-api:2.2.8
-script-security:1.54
+script-security:1.55
 sse-gateway:1.16
 ssh-agent:1.17
 ssh-credentials:1.14
