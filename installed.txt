@@ -45,7 +45,7 @@ durable-task:1.26
 ec2:1.42
 envinject-api:1.3
 envinject:2.1.6
-extended-choice-parameter:0.76
+extended-choice-parameter:0.78
 favorite:2.3.1
 git-client:2.7.3
 git-server:1.7
@@ -64,7 +64,7 @@ jdk-tool:1.2
 jenkins-design-language:1.10.2
 jira:3.0.5
 job-dsl:1.72
-jobConfigHistory:2.19
+jobConfigHistory:2.20
 jquery-detached:1.2.1
 jquery:1.11.2-0
 jsch:0.1.54.2
