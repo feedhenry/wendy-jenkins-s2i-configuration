@@ -16,7 +16,7 @@ jobConfigHistory:2.20
 lockable-resources:2.5
 maven-plugin:3.2
 metrics:4.0.2.3
-monitoring:1.76.0
+monitoring:1.77.0
 openshift-pipeline:1.0.55
 permissive-script-security:0.3
 pipeline-aws:1.36
@@ -24,11 +24,11 @@ pipeline-utility-steps:2.3.0
 rebuild:1.30
 resource-disposer:0.12
 s3:0.11.2
-script-security:1.57
+script-security:1.58
 ssh-agent:1.17
 ssh-slaves:1.29.4
 swarm:3.15
 workflow-aggregator:2.6
-workflow-cps:2.66
+workflow-cps:2.67
 workflow-scm-step:2.7
 ws-cleanup:0.37
