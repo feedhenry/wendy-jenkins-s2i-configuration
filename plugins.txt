@@ -12,7 +12,7 @@ github-api:1.95
 github-branch-source:2.5.1
 http_request:1.8.22
 jdk-tool:1.2
-jobConfigHistory:2.20
+jobConfigHistory:2.21
 lockable-resources:2.5
 maven-plugin:3.2
 metrics:4.0.2.3
