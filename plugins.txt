@@ -9,7 +9,7 @@ ec2:1.42
 envinject:2.1.6
 extended-choice-parameter:0.78
 github-api:1.95
-github-branch-source:2.5.1
+github-branch-source:2.5.2
 http_request:1.8.22
 jdk-tool:1.2
 jobConfigHistory:2.21
