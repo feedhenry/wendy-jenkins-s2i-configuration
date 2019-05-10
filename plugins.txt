@@ -5,7 +5,7 @@ aws-credentials:1.26
 bouncycastle-api:2.17
 cobertura:1.13
 copyartifact:1.42
-ec2:1.42
+ec2:1.43
 envinject:2.1.6
 extended-choice-parameter:0.78
 github-api:1.95
@@ -18,7 +18,7 @@ maven-plugin:3.2
 metrics:4.0.2.3
 monitoring:1.77.0
 openshift-pipeline:1.0.55
-permissive-script-security:0.3
+permissive-script-security:0.4
 pipeline-aws:1.37
 pipeline-utility-steps:2.3.0
 rebuild:1.31
