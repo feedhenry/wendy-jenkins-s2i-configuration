@@ -27,7 +27,7 @@ s3:0.11.2
 script-security:1.58
 ssh-agent:1.17
 ssh-slaves:1.29.4
-swarm:3.15
+swarm:3.16
 workflow-aggregator:2.6
 workflow-cps:2.68
 workflow-scm-step:2.7
