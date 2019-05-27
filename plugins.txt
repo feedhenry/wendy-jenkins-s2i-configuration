@@ -4,12 +4,12 @@ antisamy-markup-formatter:1.5
 aws-credentials:1.27
 bouncycastle-api:2.17
 cobertura:1.13
-copyartifact:1.42
+copyartifact:1.42.1
 ec2:1.43
 envinject:2.1.6
 extended-choice-parameter:0.78
 github-api:1.95
-github-branch-source:2.5.2
+github-branch-source:2.5.3
 http_request:1.8.22
 jdk-tool:1.2
 jobConfigHistory:2.21
@@ -24,7 +24,7 @@ pipeline-utility-steps:2.3.0
 rebuild:1.31
 resource-disposer:0.12
 s3:0.11.2
-script-security:1.58
+script-security:1.59
 ssh-agent:1.17
 ssh-slaves:1.29.4
 swarm:3.16
