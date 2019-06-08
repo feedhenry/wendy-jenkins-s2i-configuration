@@ -30,5 +30,5 @@ ssh-slaves:1.29.4
 swarm:3.17
 workflow-aggregator:2.6
 workflow-cps:2.70
-workflow-scm-step:2.8
+workflow-scm-step:2.9
 ws-cleanup:0.37
