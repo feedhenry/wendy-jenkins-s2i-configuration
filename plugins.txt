@@ -3,7 +3,7 @@ ansicolor:0.6.2
 antisamy-markup-formatter:1.5
 aws-credentials:1.27
 bouncycastle-api:2.17
-cobertura:1.13
+cobertura:1.14
 copyartifact:1.42.1
 ec2:1.43
 envinject:2.1.6
@@ -15,9 +15,9 @@ jdk-tool:1.2
 jobConfigHistory:2.22
 lockable-resources:2.5
 maven-plugin:3.2
-metrics:4.0.2.3
+metrics:4.0.2.4
 monitoring:1.77.0
-openshift-pipeline:1.0.55
+openshift-pipeline:1.0.56
 permissive-script-security:0.5
 pipeline-aws:1.37
 pipeline-utility-steps:2.3.0
