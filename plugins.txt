@@ -19,7 +19,7 @@ metrics:4.0.2.4
 monitoring:1.77.0
 openshift-pipeline:1.0.56
 permissive-script-security:0.5
-pipeline-aws:1.37
+pipeline-aws:1.38
 pipeline-utility-steps:2.3.0
 rebuild:1.31
 resource-disposer:0.12
