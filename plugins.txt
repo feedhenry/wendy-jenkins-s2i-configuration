@@ -6,13 +6,13 @@ bouncycastle-api:2.17
 cobertura:1.14
 copyartifact:1.42.1
 ec2:1.44.1
-envinject:2.1.6
+envinject:2.2.0
 extended-choice-parameter:0.78
 github-api:1.95
 github-branch-source:2.5.4
 http_request:1.8.23
 jdk-tool:1.3
-jobConfigHistory:2.22
+jobConfigHistory:2.23
 lockable-resources:2.5
 maven-plugin:3.3
 metrics:4.0.2.5
