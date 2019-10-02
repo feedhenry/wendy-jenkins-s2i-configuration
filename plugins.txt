@@ -5,7 +5,7 @@ aws-credentials:1.28
 bouncycastle-api:2.17
 cobertura:1.14
 copyartifact:1.42.1
-ec2:1.46
+ec2:1.46.1
 envinject:2.2.1
 extended-choice-parameter:0.78
 github-api:1.95
@@ -24,7 +24,7 @@ pipeline-utility-steps:2.3.1
 rebuild:1.31
 resource-disposer:0.13
 s3:0.11.2
-script-security:1.64
+script-security:1.66
 ssh-agent:1.17
 ssh-slaves:1.30.2
 swarm:3.17
