@@ -6,7 +6,7 @@ bouncycastle-api:2.17
 cobertura:1.15
 copyartifact:1.43
 ec2:1.46.1
-envinject:2.2.1
+envinject:2.3.0
 extended-choice-parameter:0.78
 github-api:1.95
 github-branch-source:2.5.8
