@@ -16,7 +16,7 @@ jobConfigHistory:2.24
 lockable-resources:2.7
 maven-plugin:3.4
 metrics:4.0.2.6
-monitoring:1.79.0
+monitoring:1.80.0
 openshift-pipeline:1.0.56
 permissive-script-security:0.5
 pipeline-aws:1.38
