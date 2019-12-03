@@ -10,7 +10,7 @@ envinject:2.3.0
 extended-choice-parameter:0.78
 github-api:1.95
 github-branch-source:2.5.8
-http_request:1.8.23
+http_request:1.8.24
 jdk-tool:1.4
 jobConfigHistory:2.24
 lockable-resources:2.7
