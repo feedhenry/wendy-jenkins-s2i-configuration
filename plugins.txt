@@ -31,4 +31,4 @@ swarm:3.17
 workflow-aggregator:2.6
 workflow-cps:2.78
 workflow-scm-step:2.9
-ws-cleanup:0.37
+ws-cleanup:0.38
