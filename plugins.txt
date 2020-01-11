@@ -25,7 +25,7 @@ rebuild:1.31
 resource-disposer:0.14
 s3:0.11.2
 script-security:1.68
-ssh-agent:1.17
+ssh-agent:1.18
 ssh-slaves:1.30.2
 swarm:3.17
 workflow-aggregator:2.6
