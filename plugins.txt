@@ -1,6 +1,6 @@
 ansible:1.0
 ansicolor:0.6.2
-antisamy-markup-formatter:1.6
+antisamy-markup-formatter:1.7
 aws-credentials:1.28
 bouncycastle-api:2.18
 cobertura:1.15
