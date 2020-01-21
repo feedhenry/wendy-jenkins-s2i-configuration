@@ -5,7 +5,7 @@ aws-credentials:1.28
 bouncycastle-api:2.18
 cobertura:1.15
 copyartifact:1.43
-ec2:1.48
+ec2:1.49
 envinject:2.3.0
 extended-choice-parameter:0.78
 github-api:1.95
