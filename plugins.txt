@@ -23,7 +23,7 @@ pipeline-aws:1.39
 pipeline-utility-steps:2.4.0
 rebuild:1.31
 resource-disposer:0.14
-s3:0.11.2
+s3:0.11.3
 script-security:1.68
 ssh-agent:1.19
 ssh-slaves:1.30.2
