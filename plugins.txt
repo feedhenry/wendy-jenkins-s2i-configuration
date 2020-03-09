@@ -4,7 +4,7 @@ antisamy-markup-formatter:1.8
 aws-credentials:1.28
 bouncycastle-api:2.18
 cobertura:1.15
-copyartifact:1.43
+copyartifact:1.43.1
 ec2:1.49.1
 envinject:2.3.0
 extended-choice-parameter:0.78
