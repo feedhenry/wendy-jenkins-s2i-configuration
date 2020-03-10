@@ -3,7 +3,7 @@ ansicolor:0.6.2
 antisamy-markup-formatter:1.8
 aws-credentials:1.28
 bouncycastle-api:2.18
-cobertura:1.15
+cobertura:1.16
 copyartifact:1.43.1
 ec2:1.49.1
 envinject:2.3.0
@@ -24,7 +24,7 @@ pipeline-utility-steps:2.5.0
 rebuild:1.31
 resource-disposer:0.14
 s3:0.11.5
-script-security:1.70
+script-security:1.71
 ssh-agent:1.19
 ssh-slaves:1.30.4
 swarm:3.18
