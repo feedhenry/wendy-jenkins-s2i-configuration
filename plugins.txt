@@ -14,7 +14,7 @@ http_request:1.8.24
 jdk-tool:1.4
 jobConfigHistory:2.25
 lockable-resources:2.7
-maven-plugin:3.4
+maven-plugin:3.5
 metrics:4.0.2.6
 monitoring:1.82.0
 openshift-pipeline:1.0.56
