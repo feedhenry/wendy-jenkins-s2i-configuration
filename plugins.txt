@@ -17,7 +17,7 @@ lockable-resources:2.7
 maven-plugin:3.5
 metrics:4.0.2.6
 monitoring:1.82.0
-openshift-pipeline:1.0.56
+openshift-pipeline:1.0.57
 permissive-script-security:0.6
 pipeline-aws:1.41
 pipeline-utility-steps:2.5.0
